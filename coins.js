@@ -369,46 +369,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  /* ==========================================
-     CONTINUOUS 360-DEGREE ROTATION
-     ========================================== */
+ 
+/* ==========================================
+   CONTINUOUS 360-DEGREE ROTATION
+   ========================================== */
 
-  let rotation = 0;
-  let showingQuote = false;
-  let desiredSide = false;
-  let animating = false;
+let rotation = 0;
+let showingQuote = false;
+let desiredSide = false;
+let animating = false;
 
-  const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  );
+const reducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+);
 
-  function updateCoin() {
+const animationDuration = 850;
 
-    if (animating || desiredSide === showingQuote) {
-      return;
-    }
+/* Synchronize rotation and face visibility */
 
-    /* Change the quotation only when hidden */
+function renderCoin(angle) {
 
-    if (desiredSide) {
-      selectQuote();
-    }
+  inner.style.transform = `rotateY(${angle}deg)`;
 
-    animating = true;
-    showingQuote = desiredSide;
+  const normalizedAngle = ((angle % 360) + 360) % 360;
 
-    /* Always rotate in the same direction */
+  const backVisible =
+    normalizedAngle >= 90 &&
+    normalizedAngle < 270;
 
-    rotation += 180;
+  inner.classList.toggle("show-quote", backVisible);
 
-    inner.style.transform = `rotateY(${rotation}deg)`;
-     
-window.setTimeout(() => {
+}
 
-  inner.classList.toggle("show-quote", showingQuote);
+/* Smooth acceleration and deceleration */
 
-}, reducedMotion.matches ? 0 : 425);
+function easeInOut(progress) {
 
+  return (1 - Math.cos(Math.PI * progress)) / 2;
+
+}
+
+/* Animate the next half-turn */
+
+function updateCoin() {
+
+  if (animating || desiredSide === showingQuote) {
+    return;
+  }
+
+  if (desiredSide) {
+    selectQuote();
+  }
+
+  animating = true;
+
+  const targetSide = desiredSide;
+  const startAngle = rotation;
+  const endAngle = startAngle + 180;
+
+  let startTime = null;
+
+  function finishRotation() {
+
+    rotation = endAngle;
+    showingQuote = targetSide;
+
+    renderCoin(rotation);
 
     coin.setAttribute(
       "aria-pressed",
@@ -422,18 +448,55 @@ window.setTimeout(() => {
         : "Flip profile picture to reveal a quotation"
     );
 
-    /* Finish the current rotation before starting another */
+    animating = false;
 
-   
+    updateCoin();
 
-window.setTimeout(() => {
+  }
 
-  animating = false;
+  function animateFrame(timestamp) {
 
-  updateCoin();
+    if (startTime === null) {
+      startTime = timestamp;
+    }
 
-}, reducedMotion.matches ? 0 : 860);
+    const elapsed = timestamp - startTime;
 
+    const progress = Math.min(
+      elapsed / animationDuration,
+      1
+    );
+
+    const easedProgress = easeInOut(progress);
+
+    const currentAngle =
+      startAngle + 180 * easedProgress;
+
+    renderCoin(currentAngle);
+
+    if (progress < 1) {
+
+      window.requestAnimationFrame(animateFrame);
+
+    } else {
+
+      finishRotation();
+
+    }
+
+  }
+
+  if (reducedMotion.matches) {
+
+    finishRotation();
+
+  } else {
+
+    window.requestAnimationFrame(animateFrame);
+
+  }
+
+}
 
 
   }
