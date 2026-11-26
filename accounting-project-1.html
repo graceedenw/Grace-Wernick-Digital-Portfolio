@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting for a Service Business | Grace Wernick</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Excel workbook reader -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <style>
+
+    body {
+      margin: 0;
+      background: #eaf1f7;
+    }
+
+    .project-header {
+      background: #142a48;
+      color: white;
+      padding: 55px 8%;
+    }
+
+    .back-link {
+      color: #b8d2eb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .project-kicker {
+      color: #a6c7e8;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin: 35px 0 18px;
+    }
+
+    .project-header h1 {
+      color: white;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: 0 0 15px;
+    }
+
+    .project-company {
+      color: #a6c7e8;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .project-meta {
+      color: #d0e0ef;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .project-layout {
+      max-width: 1800px;
+      margin: auto;
+      padding: 45px 5% 75px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: 35px;
+      align-items: start;
+    }
+
+    .workbook-section {
+      min-width: 0;
+    }
+
+    .section-label {
+      color: #447fb0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+    }
+
+    .workbook-container {
+      background: white;
+      border: 1px solid #d5dfe9;
+      overflow: hidden;
+    }
+
+    .workbook-toolbar {
+      background: #142a48;
+      color: white;
+      padding: 16px 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .worksheet-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px;
+      background: #edf3f9;
+      border-bottom: 1px solid #d5dfe9;
+    }
+
+    .worksheet-tab {
+      border: 1px solid #c8d7e5;
+      background: #f5f8fb;
+      color: #142a48;
+      padding: 10px 18px;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .worksheet-tab:hover {
+      background: #dce8f3;
+    }
+
+    .worksheet-tab.active {
+      background: #142a48;
+      border-color: #142a48;
+      color: white;
+    }
+
+    .viewer-instructions {
+      background: #f5f8fb;
+      color: #526b83;
+      padding: 12px 16px;
+      font-size: 12px;
+      border-bottom: 1px solid #d5dfe9;
+    }
+
+    .spreadsheet-viewer {
+      height: 760px;
+      overflow: auto;
+      background: white;
+    }
+
+    .spreadsheet-viewer table {
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      width: max-content;
+      min-width: 100%;
+      color: #24374a;
+    }
+
+    .spreadsheet-viewer td {
+      border: 1px solid #d4dce4;
+      padding: 7px 10px;
+      min-width: 75px;
+      height: 22px;
+      white-space: nowrap;
+      background: white;
+    }
+
+    .spreadsheet-viewer td:hover {
+      background: #edf3f9;
+    }
+
+    .spreadsheet-viewer td[data-t="n"] {
+      text-align: right;
+    }
+
+    .loading-message {
+      padding: 35px;
+      color: #526b83;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .workbook-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .download-button {
+      display: inline-block;
+      background: #142a48;
+      color: white;
+      padding: 14px 24px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .download-button:hover {
+      background: #447fb0;
+      color: white;
+    }
+
+    .preview-button {
+      display: inline-block;
+      border: 1px solid #142a48;
+      color: #142a48;
+      padding: 14px 24px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .preview-button:hover {
+      background: #dce8f3;
+    }
+
+    .workbook-caption {
+      color: #526b83;
+      font-size: 13px;
+      line-height: 1.8;
+      margin-top: 18px;
+    }
+
+    .project-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      min-width: 0;
+    }
+
+    .grade-card {
+      background: #edf3f9;
+      border: 1px solid #d5dfe9;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .grade-number {
+      font-family: "Playfair Display", Georgia, serif;
+      color: #142a48;
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .grade-label {
+      color: #526b83;
+      font-size: 14px;
+    }
+
+    .grade-breakdown {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #cddae6;
+      text-align: left;
+    }
+
+    .grade-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: #526b83;
+      font-size: 13px;
+    }
+
+    .grade-row strong {
+      color: #142a48;
+      white-space: nowrap;
+    }
+
+    .excel-grade {
+      background: #dce8f3;
+      padding: 20px 12px;
+      margin-top: 20px;
+    }
+
+    .excel-grade-number {
+      color: #142a48;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .grade-total {
+      color: #526b83;
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    .info-card {
+      background: #f5f8fb;
+      border: 1px solid #d5dfe9;
+      padding: 25px;
+    }
+
+    .info-card h2 {
+      color: #142a48;
+      font-size: 23px;
+      line-height: 1.3;
+      margin: 0 0 16px;
+    }
+
+    .info-card p {
+      color: #526b83;
+      font-size: 14px;
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skills-list li {
+      position: relative;
+      color: #526b83;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-left: 23px;
+      margin-bottom: 12px;
+    }
+
+    .skills-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #447fb0;
+      font-weight: bold;
+    }
+
+    .project-footer {
+      background: #142a48;
+      color: #b8d2eb;
+      padding: 25px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1000px) {
+
+      .project-layout {
+        grid-template-columns: 1fr;
+        padding: 35px 6% 60px;
+      }
+
+      .spreadsheet-viewer {
+        height: 600px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .project-header {
+        padding: 40px 6%;
+      }
+
+      .project-header h1 {
+        font-size: 36px;
+      }
+
+      .spreadsheet-viewer {
+        height: 500px;
+      }
+
+      .worksheet-tab {
+        padding: 9px 12px;
+      }
+
+      .grade-card,
+      .info-card {
+        padding: 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="project-header">
+
+    <a href="academics.html" class="back-link">
+      ← Back to Academics &amp; Coursework
+    </a>
+
+    <div class="project-kicker">
+      ACCOUNTING PROJECT 01 · MICROSOFT EXCEL
+    </div>
+
+    <h1>Accounting for a Service Business</h1>
+
+    <div class="project-company">
+      Kelly Consulting
+    </div>
+
+    <div class="project-meta">
+      Montcalm Community College<br>
+      ACCT 115 | Spring 2026
+    </div>
+
+  </header>
+
+  <main class="project-layout">
+
+    <!-- LEFT COLUMN: EXCEL WORKBOOK -->
+
+    <section class="workbook-section">
+
+      <div class="section-label">
+        EXPLORE PROJECT WORKBOOK
+      </div>
+
+      <div class="workbook-container">
+
+        <div class="workbook-toolbar">
+          Project 1 — Excel Portion
+        </div>
+
+        <div id="worksheet-tabs" class="worksheet-tabs">
+        </div>
+
+        <div class="viewer-instructions">
+          Select a worksheet tab to explore the workbook.
+          Scroll horizontally or vertically to view additional data.
+        </div>
+
+        <div id="spreadsheet-viewer"
+             class="spreadsheet-viewer"
+             aria-label="Accounting workbook viewer">
+
+          <div class="loading-message">
+            Loading Excel workbook...
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="workbook-actions">
+
+        <a
+          href="Project%201%20-%20Excel%20Portion.xlsx"
+          download
+          class="download-button">
+          ↓ Download Excel Workbook
+        </a>
+
+        <a
+          href="accounting-project-1-preview.png"
+          target="_blank"
+          rel="noopener"
+          class="preview-button">
+          Open Worksheet Preview ↗
+        </a>
+
+      </div>
+
+      <p class="workbook-caption">
+        This workbook represents Part 2 of a two-part
+        accounting project completed for ACCT 115 at
+        Montcalm Community College during the Spring
+        2026 semester. Part 1 was completed through
+        Cengage and is not included in this portfolio.
+      </p>
+
+      <p class="workbook-caption">
+        The interactive viewer displays the workbook's
+        saved worksheet data in a read-only format.
+        Download the original Excel workbook to explore
+        its formulas, formatting, and full functionality.
+      </p>
+
+    </section>
+
+    <!-- RIGHT COLUMN: PROJECT INFORMATION -->
+
+    <aside class="project-sidebar">
+
+      <!-- GRADES -->
+
+      <div class="grade-card">
+
+        <div class="grade-number">
+          97.73%
+        </div>
+
+        <div class="grade-label">
+          Overall project grade
+        </div>
+
+        <div class="grade-breakdown">
+
+          <div class="grade-row">
+            <span>Part 1 — Cengage</span>
+            <strong>44.64 / 46</strong>
+          </div>
+
+          <div class="grade-row">
+            <span>Part 2 — Microsoft Excel</span>
+            <strong>14 / 14</strong>
+          </div>
+
+        </div>
+
+        <div class="excel-grade">
+
+          <div class="excel-grade-number">
+            100%
+          </div>
+
+          <div class="grade-label">
+            Excel portion grade
+          </div>
+
+        </div>
+
+        <div class="grade-total">
+          Total: 58.64 out of 60 points
+        </div>
+
+      </div>
+
+      <!-- PROJECT OVERVIEW -->
+
+      <div class="info-card">
+
+        <h2>Project overview</h2>
+
+        <p>
+          This project involved applying foundational
+          accounting principles to Kelly Consulting,
+          a service-based business. Using Microsoft
+          Excel, I completed general ledger accounts
+          and an end-of-period worksheet, organizing
+          financial transactions, adjustments, account
+          balances, and financial information throughout
+          the accounting cycle.
+        </p>
+
+      </div>
+
+      <!-- SKILLS -->
+
+      <div class="info-card">
+
+        <h2>Skills demonstrated</h2>
+
+        <ul class="skills-list">
+
+          <li>Microsoft Excel</li>
+
+          <li>General ledger posting</li>
+
+          <li>Debit and credit classification</li>
+
+          <li>Adjusting entries</li>
+
+          <li>Trial balance preparation</li>
+
+          <li>Financial data organization</li>
+
+          <li>End-of-period financial reporting</li>
+
+          <li>Numerical accuracy and attention to detail</li>
+
+        </ul>
+
+      </div>
+
+      <!-- WHY INCLUDED -->
+
+      <div class="info-card">
+
+        <h2>Why I included this project</h2>
+
+        <p>
+          I included this project because it demonstrates
+          my foundational understanding of accounting
+          and my ability to apply classroom concepts
+          through Microsoft Excel. As an Accounting
+          major, I believe this project represents an
+          important step in developing the technical,
+          analytical, and organizational skills needed
+          for my future career.
+        </p>
+
+      </div>
+
+      <!-- REFLECTION -->
+
+      <div class="info-card">
+
+        <h2>Personal reflection</h2>
+
+        <p>
+          Completing this project helped me strengthen
+          my understanding of how individual financial
+          transactions contribute to a business's overall
+          financial position. It also reinforced the
+          importance of accuracy, organization, and
+          attention to detail throughout the accounting
+          process. Working with financial information
+          in Excel allowed me to develop practical
+          skills that I can continue building upon
+          throughout my accounting education.
+        </p>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+  <footer class="project-footer">
+    &copy; 2026 Grace Wernick | Digital Portfolio
+  </footer>
+
+  <!-- INTERACTIVE EXCEL VIEWER -->
+
+  <script>
+
+    const workbookFile =
+      "Project%201%20-%20Excel%20Portion.xlsx";
+
+    const viewer =
+      document.getElementById("spreadsheet-viewer");
+
+    const tabs =
+      document.getElementById("worksheet-tabs");
+
+    let workbook;
+
+    async function loadWorkbook() {
+
+      try {
+
+        if (typeof XLSX === "undefined") {
+          throw new Error("Excel reader unavailable");
+        }
+
+        const response = await fetch(workbookFile);
+
+        if (!response.ok) {
+          throw new Error("Workbook could not be loaded");
+        }
+
+        const data = await response.arrayBuffer();
+
+        workbook = XLSX.read(data, {
+          type: "array",
+          cellStyles: true,
+          cellFormula: true,
+          cellNF: true,
+          cellText: true
+        });
+
+        const sheetNames = workbook.SheetNames;
+
+        if (!sheetNames.length) {
+          throw new Error("No worksheets found");
+        }
+
+        tabs.innerHTML = "";
+
+        sheetNames.forEach(function(sheetName) {
+
+          const button = document.createElement("button");
+
+          button.type = "button";
+
+          button.className = "worksheet-tab";
+
+          button.textContent = sheetName;
+
+          button.addEventListener("click", function() {
+            displayWorksheet(sheetName, button);
+          });
+
+          tabs.appendChild(button);
+
+        });
+
+        displayWorksheet(
+          sheetNames[0],
+          tabs.querySelector("button")
+        );
+
+      } catch (error) {
+
+        viewer.innerHTML = `
+          <div class="loading-message">
+            The interactive workbook could not be loaded.
+            Please use the download button below to open
+            the original file in Microsoft Excel.
+            <br><br>
+            <img
+              src="accounting-project-1-preview.png"
+              alt="Kelly Consulting worksheet preview"
+              style="width:100%;height:auto;">
+          </div>
+        `;
+
+        console.error(error);
+
+      }
+
+    }
+
+    function displayWorksheet(sheetName, activeButton) {
+
+      const worksheet = workbook.Sheets[sheetName];
+
+      const table = document.createElement("table");
+
+      const range = XLSX.utils.decode_range(
+        worksheet["!ref"] || "A1"
+      );
+
+      const merges = worksheet["!merges"] || [];
+
+      const mergeStarts = new Map();
+
+      const mergedCells = new Set();
+
+      merges.forEach(function(merge) {
+
+        mergeStarts.set(
+          merge.s.r + ":" + merge.s.c,
+          merge
+        );
+
+        for (let r = merge.s.r; r <= merge.e.r; r++) {
+
+          for (let c = merge.s.c; c <= merge.e.c; c++) {
+
+            if (r !== merge.s.r || c !== merge.s.c) {
+              mergedCells.add(r + ":" + c);
+            }
+
+          }
+
+        }
+
+      });
+
+      for (let r = range.s.r; r <= range.e.r; r++) {
+
+        const row = document.createElement("tr");
+
+        for (let c = range.s.c; c <= range.e.c; c++) {
+
+          const key = r + ":" + c;
+
+          if (mergedCells.has(key)) {
+            continue;
+          }
+
+          const address = XLSX.utils.encode_cell({
+            r: r,
+            c: c
+          });
+
+          const cell = worksheet[address];
+
+          const td = document.createElement("td");
+
+          if (cell) {
+
+            td.textContent =
+              cell.w !== undefined
+                ? cell.w
+                : XLSX.utils.format_cell(cell);
+
+            td.dataset.t = cell.t || "";
+
+            if (cell.f) {
+              td.title = "=" + cell.f;
+            }
+
+          }
+
+          if (mergeStarts.has(key)) {
+
+            const merge = mergeStarts.get(key);
+
+            td.rowSpan = merge.e.r - merge.s.r + 1;
+
+            td.colSpan = merge.e.c - merge.s.c + 1;
+
+            td.style.textAlign = "center";
+
+            td.style.fontWeight = "bold";
+
+          }
+
+          row.appendChild(td);
+
+        }
+
+        table.appendChild(row);
+
+      }
+
+      viewer.replaceChildren(table);
+
+      document.querySelectorAll(".worksheet-tab")
+        .forEach(function(button) {
+
+          button.classList.remove("active");
+
+          button.setAttribute("aria-pressed", "false");
+
+        });
+
+      if (activeButton) {
+
+        activeButton.classList.add("active");
+
+        activeButton.setAttribute("aria-pressed", "true");
+
+      }
+
+      viewer.scrollTop = 0;
+
+      viewer.scrollLeft = 0;
+
+    }
+
+    loadWorkbook();
+
+  </script>
+
+</body>
+</html>
