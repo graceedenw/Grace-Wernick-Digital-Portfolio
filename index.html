@@ -17,7 +17,99 @@
     <nav class="nav" aria-label="Main navigation">
     
 <a href="#about">About</a>
-<a href="#portfolio">Portfolio</a>
+
+<!-- Portfolio Dropdown -->
+<div class="nav-dropdown" id="portfolioDropdown">
+
+  <button class="dropdown-toggle"
+          id="portfolioToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="portfolioMenu">
+
+    Portfolio
+
+    <svg class="dropdown-chevron"
+         width="14" height="14"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         aria-hidden="true">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+
+  </button>
+
+  <div class="dropdown-menu" id="portfolioMenu" inert>
+
+    <!-- Portfolio Overview -->
+    <a href="#portfolio" class="dropdown-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1"/>
+        <rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/>
+        <rect x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+      <span>Portfolio Overview</span>
+      <span class="dropdown-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <div class="dropdown-divider"></div>
+
+    <!-- Academics & Coursework -->
+    <a href="academics.html" class="dropdown-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m2 10 10-5 10 5-10 5-10-5z"/>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        <path d="M22 10v7"/>
+      </svg>
+      <span>Academics &amp; Coursework</span>
+      <span class="dropdown-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <!-- Research & Business Writing -->
+    <a href="research.html" class="dropdown-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <path d="M14 2v6h6"/>
+        <path d="M8 13h8M8 17h8"/>
+      </svg>
+      <span>Research &amp; Business Writing</span>
+      <span class="dropdown-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <!-- Communication & Collaboration -->
+    <a href="communication.html" class="dropdown-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M2 21v-2a7 7 0 0 1 14 0v2"/>
+        <path d="M16 3a4 4 0 0 1 0 8"/>
+        <path d="M18 14a6 6 0 0 1 4 5v2"/>
+      </svg>
+      <span>Communication &amp; Collaboration</span>
+      <span class="dropdown-arrow" aria-hidden="true">›</span>
+    </a>
+
+    <!-- Professional Development -->
+    <a href="development.html" class="dropdown-item">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        <path d="M2 13h20"/>
+        <path d="M10 11v4h4v-4"/>
+      </svg>
+      <span>Professional Development</span>
+      <span class="dropdown-arrow" aria-hidden="true">›</span>
+    </a>
+
+  </div>
+
+</div>
+<!-- End Portfolio Dropdown -->
+
 <a href="#resume">Resume</a>
 <a href="contact.html">Contact</a>
 <a href="https://www.linkedin.com/in/grace-wernick/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile" title="Connect on LinkedIn" style="display:inline-flex;align-items:center;justify-content:center;">
