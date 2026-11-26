@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research & Business Writing | Grace Wernick</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #eaf1f7;
+    }
+
+    .research-header {
+      background: #142a48;
+      color: white;
+      padding: 65px 8%;
+    }
+
+    .back-link {
+      color: #b8d2eb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .research-kicker {
+      color: #a6c7e8;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-top: 45px;
+      margin-bottom: 18px;
+    }
+
+    .research-header h1 {
+      font-size: clamp(36px, 5vw, 65px);
+      line-height: 1.15;
+      margin: 0 0 20px;
+      color: white;
+    }
+
+    .research-header p {
+      max-width: 700px;
+      color: #d0e0ef;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .research-content {
+      max-width: 1500px;
+      margin: auto;
+      padding: 50px 6% 80px;
+    }
+
+    .selected-work {
+      color: #447fb0;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #d5dfe9;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(20, 42, 72, 0.08);
+    }
+
+    .document-preview {
+      height: 240px;
+      background: #f0f4f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .document-preview img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .project-type {
+      color: #447fb0;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    .project-grade {
+      background: #edf3f9;
+      padding: 12px 15px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .project-grade strong {
+      display: block;
+      color: #142a48;
+      font-size: 25px;
+    }
+
+    .project-grade span {
+      font-size: 10px;
+      color: #526b83;
+    }
+
+    .project-card h2 {
+      font-size: 24px;
+      line-height: 1.3;
+      color: #142a48;
+      margin: 0 0 18px;
+    }
+
+    .project-school {
+      color: #526b83;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .project-description {
+      color: #526b83;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .project-link {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #dce5ef;
+      color: #142a48;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .project-link:hover {
+      color: #447fb0;
+    }
+
+    .research-footer {
+      background: #142a48;
+      color: #b8d2eb;
+      padding: 25px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 1050px) {
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-header {
+        padding: 40px 6%;
+      }
+
+      .project-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="research-header">
+    <a href="index.html#portfolio" class="back-link">
+      ← Back to portfolio
+    </a>
+
+    <div class="research-kicker">
+      02 / WRITING &amp; ANALYSIS
+    </div>
+
+    <h1>Research &amp; Business Writing</h1>
+
+    <p>A collection of research projects, professional documents, and writing samples that reflect my development as a writer and critical thinker.</p>
+  </header>
+
+  <main class="research-content">
+
+    <div class="selected-work">SELECTED WORK</div>
+
+    <div class="project-grid">
+
+      <!-- Research Paper -->
+      <article class="project-card">
+
+        <div class="document-preview">
+          <img src="research-preview.png" alt="Multilingualism research paper preview">
+        </div>
+
+        <div class="project-top">
+          <span class="project-type">RESEARCH PAPER</span>
+          <div class="project-grade">
+            <strong>100%</strong>
+            <span>Project grade</span>
+          </div>
+        </div>
+
+        <h2>Language, Identity, and Adjustment: The Role of Multilingualism in International Student Success</h2>
+
+        <div class="project-school">
+          Central Michigan University<br>
+          BIS101WI · November 2026
+        </div>
+
+        <p class="project-description">
+          An investigation into the influence of multilingualism on international students' academic, social, and cultural experiences through literature review and original survey research.
+        </p>
+
+        <a href="multilingualism-research.html" class="project-link">
+          View project ↗
+        </a>
+
+      </article>
+
+      <!-- Synthesis Essay -->
+      <article class="project-card">
+
+        <div class="document-preview">
+          <img src="synthesis-preview.png" alt="Synthesis essay preview">
+        </div>
+
+        <div class="project-top">
+          <span class="project-type">SYNTHESIS ESSAY</span>
+          <div class="project-grade">
+            <strong>97%</strong>
+            <span>Project grade</span>
+          </div>
+        </div>
+
+        <h2>The Importance of Communicating Parental Illness to Children</h2>
+
+        <div class="project-school">
+          Montcalm Community College<br>
+          ENGL 100 · November 2024
+        </div>
+
+        <p class="project-description">
+          A research-based essay examining the importance of healthy communication between parents and children during serious illness, combining scholarly research with personal experiences.
+        </p>
+
+        <a href="synthesis-essay.html" class="project-link">
+          View project ↗
+        </a>
+
+      </article>
+
+      <!-- Personal Narrative -->
+      <article class="project-card">
+
+        <div class="document-preview">
+          <img src="narrative-preview.png" alt="Personal narrative preview">
+        </div>
+
+        <div class="project-top">
+          <span class="project-type">PERSONAL NARRATIVE</span>
+          <div class="project-grade">
+            <strong>100%</strong>
+            <span>Project grade</span>
+          </div>
+        </div>
+
+        <h2>Another One Bites the Dust</h2>
+
+        <div class="project-school">
+          Montcalm Community College<br>
+          ENGL 100 · October 2024
+        </div>
+
+        <p class="project-description">
+          A personal narrative exploring how my mother's resilience influenced my personal growth, helped me overcome a childhood fear, and inspired me to help others through blood donation.
+        </p>
+
+        <a href="personal-narrative.html" class="project-link">
+          View project ↗
+        </a>
+
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="research-footer">
+    &copy; 2026 Grace Wernick | Digital Portfolio
+  </footer>
+
+</body>
+</html>
