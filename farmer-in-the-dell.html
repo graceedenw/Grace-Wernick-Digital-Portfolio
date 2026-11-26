@@ -999,11 +999,13 @@
 
         }
 
-    </style>
+    
+.fitd-quick{background:#eaf1f7;border:1px solid #dce6ef;border-radius:10px;padding:20px;margin-bottom:30px}.fitd-quick h2{font:700 12px 'DM Sans',sans-serif;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 14px;color:#142a48}.fitd-quick-links{display:flex;flex-wrap:wrap;gap:10px}.fitd-quick-links a{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid #dce6ef;border-radius:6px;padding:10px 13px;color:#142a48;font-size:12px;font-weight:600;text-decoration:none;transition:background .2s,color .2s}.fitd-quick-links svg{width:17px;height:17px;flex-shrink:0;fill:none;stroke:#447fb0;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.fitd-quick-links a:hover,.fitd-quick-links a:focus-visible{background:#142a48;color:white}.fitd-quick-links a:hover svg,.fitd-quick-links a:focus-visible svg{stroke:#a6c7e8}.development-section [id]{scroll-margin-top:24px}.fitd-top{position:fixed;bottom:20px;right:20px;z-index:20;background:#142a48;color:white;border:1px solid #a6c7e8;border-radius:8px;padding:10px 15px;font-size:12px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px #142a4826}.fitd-top[hidden]{display:none}.fitd-top:hover{background:#447fb0;color:white}@media(max-width:650px){.fitd-quick-links a{flex:1 1 100%}.fitd-top{bottom:12px;right:12px}}
+</style>
 </head>
 <body>
 <!-- PAGE HEADER -->
-<header class="development-header">
+<header class="development-header" id="page-top">
 <div class="header-inner">
 <a class="back-link" href="development.html">← Back to Professional Development</a>
 <div class="eyebrow">01 • Professional Experience</div>
@@ -1014,9 +1016,8 @@
                     ice cream business.</p>
 </div>
 </header>
-<main class="development-main"><section class="development-section" id="farmer-in-the-dell" style="margin-bottom: 30px;">
-
-<div class="content-card">
+<main class="development-main"><nav aria-label="Quick navigation" class="fitd-quick"><h2>Quick Navigation</h2><div class="fitd-quick-links"><a href="#employment-overview"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="7"></rect><path d="M8 7V4h8v3M3 13h18"></path></svg>Employment Overview</a><a href="#responsibilities"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="17" rx="2" width="14" x="5" y="4"></rect><path d="M9 4V2h6v2M9 10h6M9 14h6"></path></svg>Responsibilities &amp; Achievements</a><a href="#workplace-gallery"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><circle cx="8" cy="8" r="2"></circle><path d="m3 18 6-6 4 4 3-3 5 5"></path></svg>Workplace Gallery</a><a href="#marketing"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="14" rx="2" width="13" x="3" y="5"></rect><path d="m16 10 5-3v10l-5-3"></path></svg>Marketing &amp; Creative Contributions</a><a href="#recognition"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="8" r="5"></circle><path d="m8 12-2 9 6-3 6 3-2-9"></path></svg>Employee of the Week</a><a href="#accounting-connection"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="20" rx="2" width="14" x="5" y="2"></rect><path d="M8 6h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 4h2m4 0h2"></path></svg>Connection to Accounting</a></div></nav><section class="development-section" id="farmer-in-the-dell" style="margin-bottom: 30px;">
+<div class="content-card" id="employment-overview">
 <div class="employment-intro">
 <div class="logo-container">
 <img alt="Farmer in the Dell business logo" src="fitd-logo.png"/>
@@ -1069,7 +1070,7 @@
 <span>Candidates Interviewed by Hiring Panel</span>
 </div>
 </div>
-<h3>Responsibilities &amp; Achievements</h3>
+<h3 id="responsibilities">Responsibilities &amp; Achievements</h3>
 <ul class="responsibility-list">
 <li>
                         Earned a promotion to shift lead after
@@ -1124,7 +1125,7 @@
 </div>
 <!-- WORKPLACE PHOTOGRAPHS -->
 <div class="content-card">
-<h3>Workplace Gallery</h3>
+<h3 id="workplace-gallery">Workplace Gallery</h3>
 <p>
                     A look at the business environment, storefront,
                     and products that are part of my seasonal
@@ -1183,7 +1184,7 @@
 <div class="eyebrow">
                     Digital Marketing &amp; Visual Communication
                 </div>
-<h3>Marketing &amp; Creative Contributions</h3>
+<h3 id="marketing">Marketing &amp; Creative Contributions</h3>
 <p>
                     Beyond my responsibilities as a shift lead,
                     I have contributed to Farmer in the Dell's
@@ -1331,7 +1332,7 @@
 <div class="eyebrow">
                         Professional Recognition
                     </div>
-<h3>Employee of the Week</h3>
+<h3 id="recognition">Employee of the Week</h3>
 <p>
                         Farmer in the Dell • June 29, 2026
                     </p>
@@ -1395,7 +1396,7 @@
 </div>
 </div>
 <div class="reflection-box">
-<h3>Connecting My Experience to Accounting</h3>
+<h3 id="accounting-connection">Connecting My Experience to Accounting</h3>
 <p>
                     My employment at Farmer in the Dell has
                     allowed me to develop practical business
@@ -1421,6 +1422,5 @@
 <!-- ==================================== -->
 <!-- INTERACTIVE PHOTO CAROUSEL SCRIPT     -->
 <!-- ==================================== -->
-
-</body>
+<a aria-label="Back to top" class="fitd-top" hidden="" href="#page-top">↑ <span>Back to Top</span></a><script>const fitdTop = document.querySelector(".fitd-top"); function updateFitdTop(){fitdTop.hidden = window.scrollY < 450;} window.addEventListener("scroll", updateFitdTop, {passive:true}); updateFitdTop();</script></body>
 </html>
