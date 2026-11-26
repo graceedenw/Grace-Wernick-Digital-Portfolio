@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Connect | Grace Wernick</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5f8fb;
+            color: #142a48;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .contact-header {
+            background: #142a48;
+            padding: 45px 24px 55px;
+            color: white;
+        }
+
+        .contact-header-inner {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .back-link {
+            color: #c7d9eb;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .contact-eyebrow {
+            color: #a6c7e8;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 6vw, 54px);
+            color: white;
+            margin: 0 0 20px;
+        }
+
+        .contact-header p {
+            color: #d5e2ef;
+            max-width: 750px;
+            font-size: 16px;
+            line-height: 1.9;
+            margin: 0;
+        }
+
+        .contact-main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 45px 24px 65px;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+            gap: 30px;
+            align-items: start;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid #dce6ef;
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .contact-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            color: #142a48;
+            margin: 0 0 15px;
+        }
+
+        .contact-card p {
+            color: #526b83;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .information-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            padding: 25px 0;
+            border-bottom: 1px solid #dce6ef;
+        }
+
+        .information-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .information-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            background: #eaf1f7;
+            color: #447fb0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .information-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .information-text {
+            min-width: 0;
+        }
+
+        .information-text strong {
+            display: block;
+            color: #142a48;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .information-text a,
+        .information-text p {
+            color: #526b83;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .information-text a:hover {
+            color: #447fb0;
+        }
+
+        .copy-button {
+            display: block;
+            background: #eaf1f7;
+            color: #142a48;
+            border: 1px solid #dce6ef;
+            border-radius: 5px;
+            padding: 7px 12px;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .copy-button:hover {
+            background: #dce6ef;
+        }
+
+        .message-form {
+            margin-top: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #142a48;
+            margin-bottom: 9px;
+        }
+
+        .required-mark {
+            color: #447fb0;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #ccd9e5;
+            border-radius: 6px;
+            padding: 13px 14px;
+            background: #f9fbfd;
+            color: #142a48;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #447fb0;
+            box-shadow: 0 0 0 3px rgba(68, 127, 176, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #8294a7;
+        }
+
+        .send-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            background: #142a48;
+            color: white;
+            padding: 16px 20px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .send-button:hover {
+            background: #447fb0;
+        }
+
+        .send-button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+        }
+
+        .send-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-note {
+            font-size: 11px !important;
+            color: #526b83;
+            line-height: 1.7;
+            margin: 15px 0 0;
+        }
+
+        .form-note a {
+            color: #447fb0;
+        }
+
+        .spam-trap {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .form-status {
+            display: none;
+            padding: 18px;
+            border-radius: 7px;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 20px;
+        }
+
+        .form-status.success {
+            display: block;
+            background: #eaf4ee;
+            border: 1px solid #c4dfcd;
+            color: #286044;
+        }
+
+        .form-status.error {
+            display: block;
+            background: #fdf0f0;
+            border: 1px solid #edcaca;
+            color: #963c3c;
+        }
+
+        .contact-closing {
+            text-align: center;
+            padding: 40px 20px 0;
+        }
+
+        .contact-closing p {
+            color: #526b83;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .contact-footer {
+            background: #eaf1f7;
+            color: #526b83;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .contact-main {
+                padding: 25px 16px 40px;
+            }
+
+            .contact-card {
+                padding: 22px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contact-header {
+                padding: 30px 20px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="contact-header">
+        <div class="contact-header-inner">
+
+            <a href="index.html" class="back-link">
+                &larr; Back to Portfolio
+            </a>
+
+            <div class="contact-eyebrow">
+                Professional Connections
+            </div>
+
+            <h1>Let's Connect.</h1>
+
+            <p>
+                I welcome opportunities to connect with professionals,
+                explore career and internship opportunities, and build
+                meaningful relationships within the fields of accounting
+                and business.
+            </p>
+
+        </div>
+    </header>
+
+    <main class="contact-main">
+
+        <div class="contact-layout">
+
+            <!-- CONTACT INFORMATION -->
+
+            <aside class="contact-card">
+
+                <h2>Contact Information</h2>
+
+                <p>
+                    Feel free to reach out through email,
+                    LinkedIn, or the contact form.
+                </p>
+
+                <!-- EMAIL -->
+
+                <div class="information-item">
+
+                    <div class="information-icon">
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.7"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             aria-hidden="true">
+
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m2 6 10 7L22 6"/>
+
+                        </svg>
+                    </div>
+
+                    <div class="information-text">
+
+                        <strong>Email Address</strong>
+
+                        <a href="mailto:grace.e.wernick@gmail.com">
+                            grace.e.wernick@gmail.com
+                        </a>
+
+                        <button type="button"
+                                class="copy-button"
+                                id="copyEmail">
+
+                            Copy Email Address
+
+                        </button>
+
+                        <span id="copyStatus"
+                              role="status"
+                              style="font-size:12px;color:#526b83;">
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- LINKEDIN -->
+
+                <div class="information-item">
+
+                    <div class="information-icon">
+
+                        <svg viewBox="0 0 24 24"
+                             fill="currentColor"
+                             aria-hidden="true">
+
+                            <path d="M22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.26 2.37 4.26 5.45v6.29z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div class="information-text">
+
+                        <strong>LinkedIn</strong>
+
+                        <a href="https://www.linkedin.com/in/grace-wernick/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+
+                            View My Professional Profile &nearr;
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- EDUCATION -->
+
+                <div class="information-item">
+
+                    <div class="information-icon">
+
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.7"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             aria-hidden="true">
+
+                            <path d="m2 10 10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            <path d="M22 10v6"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div class="information-text">
+
+                        <strong>Central Michigan University</strong>
+
+                        <p>
+                            Bachelor of Science in Business Administration<br>
+                            Accounting Major<br>
+                            Information Systems Minor<br>
+                            Expected Graduation: May 2029
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- LOCATION -->
+
+                <div class="information-item">
+
+                    <div class="information-icon">
+
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.7"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             aria-hidden="true">
+
+                            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z"/>
+                            <circle cx="12" cy="10" r="2.5"/>
+
+                        </svg>
+
+                    </div>
+
+                    <div class="information-text">
+
+                        <strong>Location</strong>
+
+                        <p>Mount Pleasant, Michigan</p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <!-- MESSAGE FORM -->
+
+            <section class="contact-card">
+
+                <h2>Send Me a Message</h2>
+
+                <p>
+                    Have a question, professional opportunity,
+                    or simply want to connect? I would love
+                    to hear from you.
+                </p>
+
+                <form id="contactForm"
+                      class="message-form"
+                      action="https://formspree.io/f/xvkallqw"
+                      method="POST">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <input type="text"
+                                   id="name"
+                                   name="name"
+                                   placeholder="Enter your full name"
+                                   autocomplete="name"
+                                   maxlength="120"
+                                   required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                                <span class="required-mark">*</span>
+                            </label>
+
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   placeholder="Enter your email"
+                                   autocomplete="email"
+                                   maxlength="254"
+                                   required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject
+                            <span class="required-mark">*</span>
+                        </label>
+
+                        <input type="text"
+                               id="subject"
+                               name="subject"
+                               placeholder="What would you like to discuss?"
+                               maxlength="200"
+                               required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                            <span class="required-mark">*</span>
+                        </label>
+
+                        <textarea id="message"
+                                  name="message"
+                                  placeholder="Write your message here..."
+                                  maxlength="5000"
+                                  required></textarea>
+
+                    </div>
+
+                    <!-- HONEYPOT SPAM PROTECTION -->
+
+                    <div class="spam-trap" aria-hidden="true">
+                        <label for="website">
+                            Leave this field empty
+                        </label>
+                        <input type="text"
+                               id="website"
+                               name="_gotcha"
+                               tabindex="-1"
+                               autocomplete="off">
+                    </div>
+
+                    <button type="submit"
+                            class="send-button"
+                            id="sendButton">
+
+                        <span id="buttonText">
+                            Send Message
+                        </span>
+
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.8"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             aria-hidden="true">
+
+                            <path d="m22 2-7 20-4-9-9-4z"/>
+                            <path d="M22 2 11 13"/>
+
+                        </svg>
+
+                    </button>
+
+                    <p class="form-note">
+                        * Required fields. Your message is processed
+                        through Formspree and delivered to my email
+                        inbox. Your contact information will be used
+                        to respond to your inquiry. Please do not
+                        include sensitive or confidential information.
+                        See
+                        <a href="https://formspree.io/legal/privacy-policy/"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Formspree's privacy policy
+                        </a>.
+                    </p>
+
+                    <div id="formStatus"
+                         class="form-status"
+                         role="status"
+                         aria-live="polite">
+                    </div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+        <div class="contact-closing">
+
+            <p>
+                Thank you for your interest in connecting with me.
+                I look forward to hearing from you.
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer class="contact-footer">
+        &copy; 2026 Grace Wernick | Digital Portfolio
+    </footer>
+
+    <script>
+
+        // COPY EMAIL ADDRESS
+
+        const copyButton = document.getElementById("copyEmail");
+        const copyStatus = document.getElementById("copyStatus");
+
+        copyButton.addEventListener("click", async function () {
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    "grace.e.wernick@gmail.com"
+                );
+
+                copyButton.textContent = "Email Copied!";
+                copyStatus.textContent = "";
+
+                setTimeout(function () {
+                    copyButton.textContent = "Copy Email Address";
+                }, 2500);
+
+            } catch (error) {
+
+                copyStatus.textContent =
+                    "Please select and copy the email address manually.";
+
+            }
+
+        });
+
+        // FORMSPREE CONTACT FORM
+
+        const contactForm = document.getElementById("contactForm");
+        const sendButton = document.getElementById("sendButton");
+        const buttonText = document.getElementById("buttonText");
+        const formStatus = document.getElementById("formStatus");
+
+        contactForm.addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            sendButton.disabled = true;
+            buttonText.textContent = "Sending Message...";
+
+            formStatus.className = "form-status";
+            formStatus.textContent = "";
+
+            try {
+
+                const response = await fetch(contactForm.action, {
+
+                    method: "POST",
+
+                    body: new FormData(contactForm),
+
+                    headers: {
+                        "Accept": "application/json"
+                    }
+
+                });
+
+                if (response.ok) {
+
+                    formStatus.className = "form-status success";
+
+                    formStatus.textContent =
+                        "Thank you! Your message has been successfully submitted. I look forward to connecting with you.";
+
+                    contactForm.reset();
+
+                } else {
+
+                    formStatus.className = "form-status error";
+
+                    formStatus.textContent =
+                        "Your message could not be sent. Please try again or contact me directly at grace.e.wernick@gmail.com.";
+
+                }
+
+            } catch (error) {
+
+                formStatus.className = "form-status error";
+
+                formStatus.textContent =
+                    "A connection error occurred. Please try again or contact me directly by email.";
+
+            } finally {
+
+                sendButton.disabled = false;
+                buttonText.textContent = "Send Message";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
