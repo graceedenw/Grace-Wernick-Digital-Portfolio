@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Resume | Grace Wernick</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f8fb;
+      color: #142a48;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .resume-header {
+      background: #142a48;
+      color: white;
+      padding: 45px 6% 55px;
+    }
+
+    .back-link {
+      color: #b9d4ec;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 35px;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .resume-eyebrow {
+      color: #b9d4ec;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .resume-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.2;
+      color: white;
+      margin: 0 0 18px;
+    }
+
+    .resume-subtitle {
+      color: #d3e2f0;
+      font-size: 16px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .resume-content {
+      max-width: 1500px;
+      margin: auto;
+      padding: 45px 5% 65px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .pdf-container {
+      background: white;
+      border: 1px solid #dce6ef;
+      overflow: hidden;
+    }
+
+    .pdf-heading {
+      background: #eaf1f7;
+      padding: 18px 22px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .pdf-viewer {
+      display: block;
+      width: 100%;
+      height: 950px;
+      border: none;
+    }
+
+    .resume-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid #dce6ef;
+      padding: 28px;
+    }
+
+    .info-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      line-height: 1.3;
+      margin: 0 0 18px;
+      color: #142a48;
+    }
+
+    .info-card p {
+      color: #526b83;
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .resume-details {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .resume-details li {
+      color: #526b83;
+      font-size: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e2eaf2;
+    }
+
+    .resume-details li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .resume-page-button {
+      display: block;
+      padding: 16px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .download-button {
+      background: #142a48;
+      color: white;
+      border: 1px solid #142a48;
+    }
+
+    .download-button:hover {
+      background: #447fb0;
+      border-color: #447fb0;
+      color: white;
+    }
+
+    .open-button {
+      border: 1px solid #142a48;
+      color: #142a48;
+      background: transparent;
+    }
+
+    .open-button:hover {
+      background: #eaf1f7;
+    }
+
+    .resume-updated {
+      font-size: 13px;
+      color: #526b83;
+      text-align: center;
+      margin: 0;
+    }
+
+    .pdf-note {
+      padding: 16px 22px;
+      color: #526b83;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .pdf-note a {
+      color: #447fb0;
+      text-decoration: underline;
+    }
+
+    .resume-footer {
+      background: #142a48;
+      color: #d3e2f0;
+      padding: 25px 6%;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .resume-content {
+        grid-template-columns: 1fr;
+      }
+
+      .pdf-viewer {
+        height: 750px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .resume-header {
+        padding: 30px 6% 40px;
+      }
+
+      .resume-content {
+        padding: 25px 5% 40px;
+      }
+
+      .pdf-viewer {
+        height: 500px;
+      }
+
+      .info-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="resume-header">
+    <a href="index.html#resume" class="back-link">
+      &larr; Back to Portfolio
+    </a>
+
+    <p class="resume-eyebrow">Experience &amp; Credentials</p>
+
+    <h1>Professional Resume</h1>
+
+    <p class="resume-subtitle">
+      Grace Wernick<br>
+      Accounting Major &middot; Information Systems Minor
+    </p>
+  </header>
+
+  <main class="resume-content">
+
+    <section class="pdf-container">
+
+      <div class="pdf-heading">
+        Grace Wernick | Professional Resume
+      </div>
+
+      <iframe
+        class="pdf-viewer"
+        src="resume.pdf"
+        title="Grace Wernick's Professional Resume">
+      </iframe>
+
+      <div class="pdf-note">
+        Having trouble viewing the document?
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
+          Open the PDF directly.
+        </a>
+      </div>
+
+    </section>
+
+    <aside class="resume-sidebar">
+
+      <div class="info-card">
+        <h2>About My Resume</h2>
+        <p>
+          My resume highlights my educational background,
+          relevant coursework, professional experience,
+          academic achievements, and skills. It reflects
+          my continued growth as an accounting student
+          and my commitment to developing a strong
+          foundation in business, leadership, and
+          professional communication.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>Resume Highlights</h2>
+
+        <ul class="resume-details">
+          <li>Accounting &amp; Information Systems</li>
+          <li>Education &amp; Relevant Coursework</li>
+          <li>Professional &amp; Leadership Experience</li>
+          <li>Academic Awards</li>
+          <li>Professional &amp; Analytical Skills</li>
+        </ul>
+      </div>
+
+      <a
+        class="resume-page-button download-button"
+        href="resume.pdf"
+        download="Grace-Wernick-Resume.pdf">
+        Download Resume &nbsp; &darr;
+      </a>
+
+      <a
+        class="resume-page-button open-button"
+        href="resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer">
+        Open PDF &nbsp; &#8599;
+      </a>
+
+      <p class="resume-updated">
+        Last updated: November 2026
+      </p>
+
+    </aside>
+
+  </main>
+
+  <footer class="resume-footer">
+    GRACE WERNICK &middot; CENTRAL MICHIGAN UNIVERSITY
+    &middot; CLASS OF 2029
+  </footer>
+
+</body>
+</html>
