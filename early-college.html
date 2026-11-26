@@ -1210,11 +1210,7 @@
                 "(prefers-reduced-motion: reduce)"
             ).matches;
 
-            let isHovered = false;
 
-            let hasFocus = false;
-
-            let isVisible = false;
 
             const dots = [];
 
@@ -1301,11 +1297,7 @@
                 stopTimer();
 
                 if (
-                    !isPaused &&
-                    !isHovered &&
-                    !hasFocus &&
-                    isVisible &&
-                    !document.hidden
+                    !isPaused && !document.hidden
                 ) {
 
                     timer = setInterval(() => {
@@ -1358,42 +1350,6 @@
 
             });
 
-            carousel.addEventListener("mouseenter", () => {
-
-                isHovered = true;
-
-                stopTimer();
-
-            });
-
-            carousel.addEventListener("mouseleave", () => {
-
-                isHovered = false;
-
-                restartTimer();
-
-            });
-
-            carousel.addEventListener("focusin", () => {
-
-                hasFocus = true;
-
-                stopTimer();
-
-            });
-
-            carousel.addEventListener("focusout", (event) => {
-
-                if (!carousel.contains(event.relatedTarget)) {
-
-                    hasFocus = false;
-
-                    restartTimer();
-
-                }
-
-            });
-
             carousel.addEventListener("keydown", (event) => {
 
                 if (event.key === "ArrowLeft") {
@@ -1422,29 +1378,6 @@
                 "visibilitychange",
                 restartTimer
             );
-
-            if ("IntersectionObserver" in window) {
-
-                const observer =
-                    new IntersectionObserver((entries) => {
-
-                        isVisible = entries[0].isIntersecting;
-
-                        restartTimer();
-
-                    }, {
-
-                        threshold: 0.15
-
-                    });
-
-                observer.observe(carousel);
-
-            } else {
-
-                isVisible = true;
-
-            }
 
             showPhoto(0);
 
@@ -1476,7 +1409,7 @@
                 file: "mcc-promo-03.png",
                 alt: "Outdoor MCC student group photograph",
                 caption:
-                    "Outdoor group portrait representing the Early College student community."
+                    "Group photograph representing the Montcalm Community College student community."
             },
 
             {
@@ -1504,7 +1437,7 @@
                 file: "mcc-promo-07.png",
                 alt: "Seated group of MCC students",
                 caption:
-                    "Group photograph representing the Montcalm Community College student community."
+                    "Outdoor group portrait representing the Early College student community."
             },
 
             {
