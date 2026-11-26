@@ -418,29 +418,15 @@ document.addEventListener("DOMContentLoaded", () => {
     /* Finish the current rotation before starting another */
 
    
+
 window.setTimeout(() => {
-
-  if (!showingQuote && rotation >= 360) {
-
-    // Silently reset after a complete revolution
-    inner.style.transition = "none";
-
-    rotation = 0;
-    inner.style.transform = "rotateY(0deg)";
-
-    // Force the browser to apply the reset
-    void inner.offsetWidth;
-
-    // Restore the smooth animation
-    inner.style.transition = "";
-
-  }
 
   animating = false;
 
   updateCoin();
 
-}, reducedMotion.matches ? 0 : 900);
+}, reducedMotion.matches ? 0 : 860);
+
 
 
   }
