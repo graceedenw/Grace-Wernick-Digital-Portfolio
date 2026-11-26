@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Language & Communication in Conflict | Grace Wernick</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #142a48;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .project-header {
+            background: #142a48;
+            color: white;
+            padding: 45px 24px 50px;
+        }
+
+        .header-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: #c7d9eb;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .project-label {
+            color: #a6c7e8;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 28px 0 12px;
+        }
+
+        .project-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.25;
+            color: white;
+            max-width: 1050px;
+            margin: 0 0 18px;
+        }
+
+        .project-meta {
+            color: #d5e2ef;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .project-layout {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            gap: 35px;
+            align-items: start;
+        }
+
+        .materials-section {
+            min-width: 0;
+        }
+
+        .materials-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+
+        .materials-intro {
+            color: #526b83;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .document-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 14px;
+        }
+
+        .tab-button {
+            background: #eaf1f7;
+            color: #142a48;
+            border: 1px solid #dce6ef;
+            border-radius: 6px;
+            padding: 10px 13px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .tab-button:hover {
+            background: #d5e2ef;
+        }
+
+        .tab-button.active {
+            background: #142a48;
+            border-color: #142a48;
+            color: white;
+        }
+
+        .document-viewer {
+            background: #eaf1f7;
+            border: 1px solid #dce6ef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .document-viewer iframe {
+            display: block;
+            width: 100%;
+            height: 720px;
+            border: none;
+            background: #eaf1f7;
+        }
+
+        .document-caption {
+            font-size: 13px;
+            color: #526b83;
+            line-height: 1.7;
+            margin: 14px 0 20px;
+        }
+
+        .document-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .download-button,
+        .open-button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .download-button {
+            background: #142a48;
+            color: white;
+        }
+
+        .download-button:hover {
+            background: #447fb0;
+            color: white;
+        }
+
+        .open-button {
+            background: #eaf1f7;
+            color: #142a48;
+            border: 1px solid #dce6ef;
+        }
+
+        .open-button:hover {
+            background: #d5e2ef;
+        }
+
+        .viewer-note {
+            font-size: 12px;
+            color: #526b83;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        .project-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .grade-box {
+            background: #edf3f9;
+            border-left: 4px solid #447fb0;
+            border-radius: 8px;
+            padding: 23px;
+        }
+
+        .grade-label {
+            color: #526b83;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .grade-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #142a48;
+            margin: 6px 0;
+        }
+
+        .grade-total {
+            color: #526b83;
+            font-size: 14px;
+        }
+
+        .grade-breakdown {
+            border-top: 1px solid #cddbe8;
+            margin-top: 18px;
+            padding-top: 12px;
+        }
+
+        .grade-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 9px 0;
+            color: #526b83;
+        }
+
+        .grade-row strong {
+            color: #142a48;
+            white-space: nowrap;
+        }
+
+        .info-card {
+            background: #f5f8fb;
+            border: 1px solid #dce6ef;
+            border-radius: 10px;
+            padding: 23px;
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
+            color: #142a48;
+            margin: 0 0 12px;
+        }
+
+        .info-card p {
+            color: #526b83;
+            font-size: 14px;
+            line-height: 1.85;
+            margin: 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #eaf1f7;
+            color: #526b83;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 7px 12px;
+            border-radius: 20px;
+        }
+
+        .project-footer {
+            background: #eaf1f7;
+            text-align: center;
+            padding: 24px;
+            color: #526b83;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .project-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .document-viewer iframe {
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .project-layout {
+                padding: 28px 16px 40px;
+            }
+
+            .project-header {
+                padding: 30px 20px 35px;
+            }
+
+            .document-viewer iframe {
+                height: 450px;
+            }
+
+            .tab-button {
+                font-size: 11px;
+                padding: 9px 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="project-header">
+        <div class="header-inner">
+
+            <a href="communication.html" class="back-link">
+                &larr; Back to Communication &amp; Collaboration
+            </a>
+
+            <div class="project-label">
+                Individual Unessay Project
+            </div>
+
+            <h1>
+                Language &amp; Communication in Conflict:
+                With a Focus on WW1 and WW2
+            </h1>
+
+            <p class="project-meta">
+                Montcalm Community College<br>
+                HIST 257 &mdash; 21st Century World:
+                Global History &amp; Issues since 1900<br>
+                Spring 2025
+            </p>
+
+        </div>
+    </header>
+
+    <main class="project-layout">
+
+        <!-- LEFT COLUMN: PROJECT MATERIALS -->
+
+        <section class="materials-section">
+
+            <h2>Project Materials</h2>
+
+            <p class="materials-intro">
+                Explore the five components of my Unessay project,
+                from the initial proposal and written research
+                to the oral presentation and supporting materials.
+                Select a tab below to view each document.
+            </p>
+
+            <div class="document-tabs"
+                 role="group"
+                 aria-label="Project documents">
+
+                <button class="tab-button active"
+                        aria-pressed="true"
+                        onclick="showDocument(0)">
+                    Project Proposal
+                </button>
+
+                <button class="tab-button"
+                        aria-pressed="false"
+                        onclick="showDocument(1)">
+                    Research Essay
+                </button>
+
+                <button class="tab-button"
+                        aria-pressed="false"
+                        onclick="showDocument(2)">
+                    PowerPoint
+                </button>
+
+                <button class="tab-button"
+                        aria-pressed="false"
+                        onclick="showDocument(3)">
+                    Speaking Notes
+                </button>
+
+                <button class="tab-button"
+                        aria-pressed="false"
+                        onclick="showDocument(4)">
+                    Audience Handout
+                </button>
+
+            </div>
+
+            <div class="document-viewer">
+
+                <iframe
+                    id="documentFrame"
+                    src="hist257-proposal.pdf"
+                    title="Project Proposal"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <p class="document-caption"
+               id="documentCaption">
+                The initial project proposal outlines my research
+                topic and planned approach to completing the
+                multimedia Unessay project.
+            </p>
+
+            <div class="document-actions">
+
+                <a id="downloadLink"
+                   href="hist257-proposal.pdf"
+                   class="download-button"
+                   download>
+                    Download Project Proposal
+                </a>
+
+                <a id="openLink"
+                   href="hist257-proposal.pdf"
+                   class="open-button"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Open in New Tab &nearr;
+                </a>
+
+            </div>
+
+            <p class="viewer-note" id="viewerNote">
+                If the embedded document does not display,
+                use the download or open button above.
+            </p>
+
+        </section>
+
+        <!-- RIGHT COLUMN: PROJECT INFORMATION -->
+
+        <aside class="project-sidebar">
+
+            <div class="grade-box">
+
+                <div class="grade-label">Final Project Grade</div>
+
+                <div class="grade-number">100%</div>
+
+                <div class="grade-total">
+                    125/125 total points
+                </div>
+
+                <div class="grade-breakdown">
+
+                    <div class="grade-row">
+                        <span>Project Proposal</span>
+                        <strong>25/25</strong>
+                    </div>
+
+                    <div class="grade-row">
+                        <span>
+                            Final Project<br>
+                            <small>
+                                Essay, PowerPoint, Speaking Notes,
+                                and Audience Handout
+                            </small>
+                        </span>
+                        <strong>100/100</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Project Overview</h3>
+
+                <p>
+                    This individual Unessay project explores the
+                    role of language and communication in conflict,
+                    with a particular focus on World War I and
+                    World War II. Rather than relying solely on a
+                    traditional research essay, I combined written
+                    research, a visual presentation, speaking notes,
+                    and an audience handout to communicate my
+                    findings through multiple formats.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Skills Demonstrated</h3>
+
+                <div class="skills-list">
+
+                    <span class="skill-tag">Public Speaking</span>
+                    <span class="skill-tag">Academic Research</span>
+                    <span class="skill-tag">Visual Communication</span>
+                    <span class="skill-tag">Written Communication</span>
+                    <span class="skill-tag">Critical Thinking</span>
+                    <span class="skill-tag">Presentation Design</span>
+                    <span class="skill-tag">Audience Awareness</span>
+                    <span class="skill-tag">Project Planning</span>
+                    <span class="skill-tag">Information Synthesis</span>
+                    <span class="skill-tag">Microsoft PowerPoint</span>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Why I Included This Project</h3>
+
+                <p>
+                    I included this project because it demonstrates
+                    my ability to communicate complex information
+                    through multiple formats. Although the subject
+                    is historical, the skills involved are directly
+                    applicable to business and accounting.
+                    Professionals must be able to organize detailed
+                    information, present findings clearly, and adapt
+                    their communication to different audiences.
+                    This project highlights my ability to combine
+                    research and analysis with effective written,
+                    oral, and visual communication.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Personal Reflection</h3>
+
+                <p>
+                    Completing this project allowed me to develop
+                    my communication skills beyond traditional
+                    academic writing. Creating a presentation,
+                    speaking notes, and an audience handout required
+                    me to consider how information could be organized
+                    and communicated in different ways. This
+                    experience connects to the communication skills
+                    I continue to develop in my business coursework,
+                    particularly the importance of preparation,
+                    clarity, organization, and audience awareness
+                    when presenting complex information.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer class="project-footer">
+        &copy; 2026 Grace Wernick | Digital Portfolio
+    </footer>
+
+    <script>
+
+        const documents = [
+            {
+                name: "Project Proposal",
+                file: "hist257-proposal.pdf",
+                type: "pdf",
+                caption:
+                    "The initial project proposal outlines my research topic and planned approach to completing the multimedia Unessay project."
+            },
+            {
+                name: "Research Essay",
+                file: "hist257-essay.pdf",
+                type: "pdf",
+                caption:
+                    "The research essay presents my written analysis of language and communication in conflict, demonstrating research, critical thinking, and academic writing skills."
+            },
+            {
+                name: "PowerPoint",
+                file: "hist257-presentation.pptx",
+                type: "powerpoint",
+                caption:
+                    "My original PowerPoint presentation communicates the project's research findings through visual organization and presentation design."
+            },
+            {
+                name: "Speaking Notes",
+                file: "hist257-speaking-notes.pdf",
+                type: "pdf",
+                caption:
+                    "The speaking notes support the oral presentation by organizing key information and providing structure for communicating the research to an audience."
+            },
+            {
+                name: "Audience Handout",
+                file: "hist257-handout.pdf",
+                type: "pdf",
+                caption:
+                    "The audience handout provides supporting information in an accessible format, demonstrating audience awareness and concise written communication."
+            }
+        ];
+
+        function showDocument(index) {
+
+            const selected = documents[index];
+
+            const frame =
+                document.getElementById("documentFrame");
+
+            const caption =
+                document.getElementById("documentCaption");
+
+            const downloadLink =
+                document.getElementById("downloadLink");
+
+            const openLink =
+                document.getElementById("openLink");
+
+            const viewerNote =
+                document.getElementById("viewerNote");
+
+            const fileURL =
+                new URL(selected.file, window.location.href).href;
+
+            let viewerURL = fileURL;
+
+            if (selected.type === "powerpoint") {
+
+                viewerURL =
+                    "https://view.officeapps.live.com/op/embed.aspx?src=" +
+                    encodeURIComponent(fileURL);
+
+                frame.style.height = "500px";
+
+                viewerNote.textContent =
+                    "The presentation is displayed using Microsoft Office's online viewer. If the viewer does not load, download the original PowerPoint file.";
+
+            } else {
+
+                frame.style.height = "";
+
+                viewerNote.textContent =
+                    "If the embedded document does not display, use the download or open button above.";
+
+            }
+
+            frame.src = viewerURL;
+            frame.title = selected.name;
+
+            caption.textContent = selected.caption;
+
+            downloadLink.href = fileURL;
+            downloadLink.textContent =
+                "Download " + selected.name;
+
+            openLink.href = viewerURL;
+
+            document.querySelectorAll(".tab-button")
+                .forEach((button, buttonIndex) => {
+
+                    const isActive = buttonIndex === index;
+
+                    button.classList.toggle(
+                        "active",
+                        isActive
+                    );
+
+                    button.setAttribute(
+                        "aria-pressed",
+                        String(isActive)
+                    );
+
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
