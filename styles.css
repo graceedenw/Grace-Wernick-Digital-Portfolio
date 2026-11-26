@@ -16,3 +16,106 @@
   object-fit: cover;
   display: block;
 }
+
+
+
+/* ===================================
+   INTERACTIVE HOVER EFFECTS
+   =================================== */
+
+/* Smooth transitions */
+.portfolio-card,
+.hero-aside .monogram,
+.button,
+.card-icon,
+.nav a {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Animated navigation underlines */
+.nav a {
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.3s ease;
+}
+
+/* Hover effects for mouse-enabled devices */
+@media (hover: hover) and (pointer: fine) {
+
+  /* Portfolio cards */
+  .portfolio-card:hover {
+    transform: translateY(-6px) scale(1.025);
+    box-shadow: 0 16px 35px rgba(20, 45, 78, 0.13);
+    border-color: var(--sky);
+  }
+
+  /* Portfolio card icons */
+  .portfolio-card:hover .card-icon {
+    transform: scale(1.12);
+  }
+
+  /* Profile picture */
+  .hero-aside .monogram:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 30px rgba(169, 201, 232, 0.25);
+    border-color: var(--sky);
+  }
+
+  /* Buttons */
+  .button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 16px rgba(20, 45, 78, 0.15);
+  }
+
+  /* Navigation links */
+  .nav a:hover::after {
+    width: 100%;
+  }
+
+  /* LinkedIn icon */
+  .nav a[href*="linkedin.com"]:hover {
+    transform: scale(1.12);
+  }
+
+  .nav a[href*="linkedin.com"]::after {
+    display: none;
+  }
+}
+
+/* Keyboard navigation accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 5px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .portfolio-card,
+  .hero-aside .monogram,
+  .button,
+  .card-icon,
+  .nav a,
+  .nav a::after {
+    transition: none;
+    transform: none !important;
+  }
+}
