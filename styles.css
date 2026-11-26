@@ -63,10 +63,17 @@
     border-color: var(--sky);
   }
 
-  /* Portfolio card icons */
-  .portfolio-card:hover .card-icon {
-    transform: scale(1.12);
-  }
+ 
+/* Portfolio card icons */
+.portfolio-card .card-icon {
+  width: fit-content;
+  transform-origin: left center;
+}
+
+.portfolio-card:hover .card-icon {
+  transform: scale(1.12);
+}
+
 
   /* Profile picture */
   .hero-aside .monogram:hover {
