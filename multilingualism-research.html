@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multilingualism Research | Grace Wernick</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #eaf1f7;
+    }
+
+    .project-header {
+      background: #142a48;
+      color: white;
+      padding: 55px 6%;
+    }
+
+    .back-link {
+      color: #b8d2eb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .project-kicker {
+      color: #a6c7e8;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-top: 35px;
+      margin-bottom: 18px;
+    }
+
+    .project-header h1 {
+      color: white;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.2;
+      max-width: 1150px;
+      margin: 0 0 25px;
+    }
+
+    .project-meta {
+      color: #d0e0ef;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 30px;
+      max-width: 1800px;
+      margin: auto;
+      padding: 40px 4% 70px;
+    }
+
+    .document-section {
+      min-width: 0;
+    }
+
+    .section-label {
+      color: #447fb0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 1100px;
+      border: 1px solid #cbd9e6;
+      background: white;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    .document-caption {
+      color: #526b83;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    .document-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .document-button {
+      display: inline-block;
+      background: #142a48;
+      color: white;
+      padding: 12px 20px;
+      font-size: 13px;
+      text-decoration: none;
+      border: 1px solid #142a48;
+      transition: background 0.2s;
+    }
+
+    .document-button:hover {
+      background: #447fb0;
+      color: white;
+    }
+
+    .document-button.secondary {
+      background: transparent;
+      color: #142a48;
+    }
+
+    .document-button.secondary:hover {
+      background: #dce7f1;
+    }
+
+    .project-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .information-card {
+      background: #f5f8fb;
+      border: 1px solid #d5dfe9;
+      padding: 25px;
+    }
+
+    .grade-card {
+      background: #edf3f9;
+      border: 1px solid #d5dfe9;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .grade-card strong {
+      display: block;
+      color: #142a48;
+      font-size: 48px;
+      line-height: 1.3;
+    }
+
+    .grade-card span {
+      color: #526b83;
+      font-size: 13px;
+    }
+
+    .information-card h2 {
+      color: #142a48;
+      font-size: 24px;
+      line-height: 1.3;
+      margin: 0 0 15px;
+    }
+
+    .information-card p {
+      color: #526b83;
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .project-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .fact {
+      background: #eaf1f7;
+      padding: 15px 8px;
+      text-align: center;
+    }
+
+    .fact strong {
+      display: block;
+      color: #142a48;
+      font-size: 26px;
+    }
+
+    .fact span {
+      color: #526b83;
+      font-size: 11px;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skill-list li {
+      color: #526b83;
+      font-size: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid #dce5ef;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-list li:last-child {
+      border-bottom: none;
+    }
+
+    .skill-list li::before {
+      content: "✓";
+      color: #447fb0;
+      font-weight: bold;
+    }
+
+    .project-footer {
+      background: #142a48;
+      color: #b8d2eb;
+      padding: 25px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .pdf-viewer {
+        height: 750px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .project-header {
+        padding: 35px 6%;
+      }
+
+      .project-layout {
+        padding: 25px 5% 50px;
+      }
+
+      .pdf-viewer {
+        height: 550px;
+      }
+
+      .information-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="project-header">
+
+    <a href="research.html" class="back-link">
+      ← Back to Research &amp; Business Writing
+    </a>
+
+    <div class="project-kicker">
+      ACADEMIC RESEARCH PAPER
+    </div>
+
+    <h1>
+      Language, Identity, and Adjustment:
+      The Role of Multilingualism in International Student Success
+    </h1>
+
+    <div class="project-meta">
+      Central Michigan University<br>
+      BIS101WI: Essential Business Communication Skills<br>
+      November 11, 2026
+    </div>
+
+  </header>
+
+  <main class="project-layout">
+
+    <!-- LEFT SIDE: PDF DOCUMENT -->
+
+    <section class="document-section">
+
+      <div class="section-label">
+        PROJECT DOCUMENT
+      </div>
+
+      <iframe
+        class="pdf-viewer"
+        src="research%20paper.pdf#view=FitH"
+        title="Multilingualism research paper PDF">
+      </iframe>
+
+      <p class="document-caption">
+        Original academic research paper completed for
+        BIS101WI at Central Michigan University.
+        This project combines a literature review,
+        original survey research, qualitative data
+        analysis, and academic writing.
+      </p>
+
+      <div class="document-actions">
+
+        <a href="research%20paper.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="document-button">
+          Open full paper ↗
+        </a>
+
+        <a href="research%20paper.pdf"
+           download
+           class="document-button secondary">
+          Download PDF ↓
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- RIGHT SIDE: PROJECT INFORMATION -->
+
+    <aside class="project-sidebar">
+
+      <div class="grade-card">
+        <strong>100%</strong>
+        <span>Project grade</span>
+      </div>
+
+      <section class="information-card">
+
+        <h2>Project overview</h2>
+
+        <p>
+          This research project examines how
+          multilingualism influences the academic,
+          social, and cultural experiences of
+          international students studying in the
+          United States. Through a literature review
+          and an original survey, I explored the
+          benefits of multilingualism, language
+          maintenance practices, and the challenges
+          students encounter in an English-dominant
+          environment.
+        </p>
+
+        <div class="project-facts">
+
+          <div class="fact">
+            <strong>27</strong>
+            <span>Pages</span>
+          </div>
+
+          <div class="fact">
+            <strong>10</strong>
+            <span>Research sources</span>
+          </div>
+
+          <div class="fact">
+            <strong>20</strong>
+            <span>Survey questions</span>
+          </div>
+
+          <div class="fact">
+            <strong>3</strong>
+            <span>Survey participants</span>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="information-card">
+
+        <h2>Skills demonstrated</h2>
+
+        <ul class="skill-list">
+          <li>Research and analysis</li>
+          <li>Academic writing</li>
+          <li>Survey design</li>
+          <li>Microsoft Forms</li>
+          <li>Qualitative data interpretation</li>
+          <li>Critical thinking</li>
+          <li>APA formatting and citation</li>
+          <li>Peer review and revision</li>
+          <li>Cross-cultural communication</li>
+        </ul>
+
+      </section>
+
+      <section class="information-card">
+
+        <h2>Why I included this project</h2>
+
+        <p>
+          I selected this project because it
+          demonstrates my ability to conduct
+          independent research, evaluate information
+          from multiple sources, collect original data,
+          and communicate findings in a structured
+          academic document. These skills are valuable
+          in both my academic studies and my future
+          career in accounting and business.
+        </p>
+
+      </section>
+
+      <section class="information-card">
+
+        <h2>Personal reflection</h2>
+
+        <p>
+          Completing this project allowed me to
+          strengthen my research, analytical, and
+          written communication skills. Designing a
+          survey and interpreting participants'
+          responses helped me understand the
+          importance of asking thoughtful questions,
+          recognizing patterns, and acknowledging
+          research limitations. I also gained a greater
+          appreciation for the role communication
+          plays in connecting individuals from
+          different linguistic and cultural backgrounds.
+        </p>
+
+      </section>
+
+    </aside>
+
+  </main>
+
+  <footer class="project-footer">
+    &copy; 2026 Grace Wernick | Digital Portfolio
+  </footer>
+
+</body>
+</html>
