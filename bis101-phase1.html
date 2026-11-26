@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crafting Effective Business Meeting Agendas | Grace Wernick</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #142a48;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .project-header {
+            background: #142a48;
+            color: white;
+            padding: 45px 24px 50px;
+        }
+
+        .header-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: #c7d9eb;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .project-label {
+            color: #a6c7e8;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 28px 0 12px;
+        }
+
+        .project-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.25;
+            color: white;
+            max-width: 1050px;
+            margin: 0 0 18px;
+        }
+
+        .project-meta {
+            color: #d5e2ef;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .project-layout {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            gap: 35px;
+            align-items: start;
+        }
+
+        .materials-section {
+            min-width: 0;
+        }
+
+        .materials-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+
+        .materials-intro {
+            color: #526b83;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .document-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 14px;
+        }
+
+        .tab-button {
+            background: #eaf1f7;
+            color: #142a48;
+            border: 1px solid #dce6ef;
+            border-radius: 6px;
+            padding: 10px 13px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .tab-button:hover {
+            background: #d5e2ef;
+        }
+
+        .tab-button.active {
+            background: #142a48;
+            border-color: #142a48;
+            color: white;
+        }
+
+        .document-viewer {
+            background: #eaf1f7;
+            border: 1px solid #dce6ef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .document-viewer iframe {
+            display: block;
+            width: 100%;
+            height: 720px;
+            border: none;
+            background: #eaf1f7;
+        }
+
+        .document-viewer iframe.powerpoint-viewer {
+            height: 500px;
+        }
+
+        .document-caption {
+            font-size: 13px;
+            color: #526b83;
+            line-height: 1.7;
+            margin: 14px 0 20px;
+        }
+
+        .document-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .download-button,
+        .open-button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .download-button {
+            background: #142a48;
+            color: white;
+        }
+
+        .download-button:hover {
+            background: #447fb0;
+            color: white;
+        }
+
+        .open-button {
+            background: #eaf1f7;
+            color: #142a48;
+            border: 1px solid #dce6ef;
+        }
+
+        .open-button:hover {
+            background: #d5e2ef;
+        }
+
+        .viewer-note {
+            font-size: 12px;
+            color: #526b83;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        .project-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .grade-box {
+            background: #edf3f9;
+            border-left: 4px solid #447fb0;
+            border-radius: 8px;
+            padding: 23px;
+        }
+
+        .grade-label {
+            color: #526b83;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .grade-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #142a48;
+            margin: 6px 0;
+        }
+
+        .grade-total {
+            color: #526b83;
+            font-size: 14px;
+        }
+
+        .grade-breakdown {
+            border-top: 1px solid #cddbe8;
+            margin-top: 18px;
+            padding-top: 12px;
+        }
+
+        .grade-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 12px 0;
+            color: #526b83;
+        }
+
+        .grade-row strong {
+            color: #142a48;
+            white-space: nowrap;
+        }
+
+        .grade-row small {
+            color: #526b83;
+            font-size: 11px;
+        }
+
+        .info-card {
+            background: #f5f8fb;
+            border: 1px solid #dce6ef;
+            border-radius: 10px;
+            padding: 23px;
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
+            color: #142a48;
+            margin: 0 0 12px;
+        }
+
+        .info-card p {
+            color: #526b83;
+            font-size: 14px;
+            line-height: 1.85;
+            margin: 0;
+        }
+
+        .contributions-list {
+            padding-left: 18px;
+            margin: 0;
+            color: #526b83;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .contributions-list li {
+            margin-bottom: 9px;
+        }
+
+        .contributions-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .contributions-list li::marker {
+            color: #447fb0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #eaf1f7;
+            color: #526b83;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 7px 12px;
+            border-radius: 20px;
+        }
+
+        .project-footer {
+            background: #eaf1f7;
+            text-align: center;
+            padding: 24px;
+            color: #526b83;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .project-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .document-viewer iframe {
+                height: 600px;
+            }
+
+            .document-viewer iframe.powerpoint-viewer {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .project-layout {
+                padding: 28px 16px 40px;
+            }
+
+            .project-header {
+                padding: 30px 20px 35px;
+            }
+
+            .document-viewer iframe {
+                height: 450px;
+            }
+
+            .document-viewer iframe.powerpoint-viewer {
+                height: 300px;
+            }
+
+            .tab-button {
+                font-size: 11px;
+                padding: 9px 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="project-header">
+        <div class="header-inner">
+
+            <a href="communication.html" class="back-link">
+                &larr; Back to Communication &amp; Collaboration
+            </a>
+
+            <div class="project-label">
+                Teamwork in Business &bull; Phase 1
+            </div>
+
+            <h1>
+                Crafting Effective Business Meeting Agendas
+            </h1>
+
+            <p class="project-meta">
+                Central Michigan University<br>
+                BIS101WI &mdash; Essential Business Communication<br>
+                Fall 2026
+            </p>
+
+        </div>
+    </header>
+
+    <main class="project-layout">
+
+        <!-- LEFT COLUMN: PROJECT MATERIALS -->
+
+        <section class="materials-section">
+
+            <h2>Project Materials</h2>
+
+            <p class="materials-intro">
+                Explore the three components of our Teamwork
+                in Business Phase 1 project, including our
+                collaborative proposal memo, interactive
+                micro-workshop presentation, and my individual
+                reflection on the teamwork experience.
+                Select a tab below to view each document.
+            </p>
+
+            <div class="document-tabs"
+                 role="group"
+                 aria-label="Project documents">
+
+                <button class="tab-button active"
+                        aria-pressed="true"
+                        onclick="showDocument(0)">
+                    Proposal Memo
+                </button>
+
+                <button class="tab-button"
+                        aria-pressed="false"
+                        onclick="showDocument(1)">
+                    PowerPoint
+                </button>
+
+                <button class="tab-button"
+                        aria-pressed="false"
+                        onclick="showDocument(2)">
+                    Personal Reflection
+                </button>
+
+            </div>
+
+            <div class="document-viewer">
+
+                <iframe
+                    id="documentFrame"
+                    src="bis101-phase1-proposal.pdf"
+                    title="Proposal Memo"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <p class="document-caption"
+               id="documentCaption">
+                Our team's proposal memo outlines the purpose,
+                learning objectives, structure, and planned
+                activities of our interactive micro-workshop.
+                It demonstrates professional business writing,
+                collaborative planning, and audience awareness.
+            </p>
+
+            <div class="document-actions">
+
+                <a id="downloadLink"
+                   href="bis101-phase1-proposal.pdf"
+                   class="download-button"
+                   download>
+                    Download Proposal Memo
+                </a>
+
+                <a id="openLink"
+                   href="bis101-phase1-proposal.pdf"
+                   class="open-button"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Open in New Tab &nearr;
+                </a>
+
+            </div>
+
+            <p class="viewer-note" id="viewerNote">
+                If the embedded document does not display,
+                use the download or open button above.
+            </p>
+
+        </section>
+
+        <!-- RIGHT COLUMN: PROJECT INFORMATION -->
+
+        <aside class="project-sidebar">
+
+            <div class="grade-box">
+
+                <div class="grade-label">
+                    Final Project Grade
+                </div>
+
+                <div class="grade-number">96%</div>
+
+                <div class="grade-total">
+                    120/125 total points
+                </div>
+
+                <div class="grade-breakdown">
+
+                    <div class="grade-row">
+                        <span>
+                            Proposal Memo<br>
+                            <small>Team Grade</small>
+                        </span>
+                        <strong>25/25</strong>
+                    </div>
+
+                    <div class="grade-row">
+                        <span>
+                            Presentation &amp; PowerPoint<br>
+                            <small>Team Grade</small>
+                        </span>
+                        <strong>45/50</strong>
+                    </div>
+
+                    <div class="grade-row">
+                        <span>
+                            Personal Reflection<br>
+                            <small>Individual Grade</small>
+                        </span>
+                        <strong>50/50</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Project Overview</h3>
+
+                <p>
+                    As part of the Teamwork in Business assignment
+                    in BIS101WI, my team developed and delivered
+                    a 15-minute interactive micro-workshop focused
+                    on creating effective business meeting agendas.
+                    Our workshop introduced the essential components
+                    of a well-organized agenda and guided participants
+                    through a practical activity involving a campus
+                    fundraising event. The project combined
+                    professional business writing, collaborative
+                    planning, oral communication, and active
+                    audience participation.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>My Individual Contributions</h3>
+
+                <ul class="contributions-list">
+
+                    <li>
+                        Created and designed the team's complete
+                        PowerPoint presentation.
+                    </li>
+
+                    <li>
+                        Led the interactive portion of the workshop,
+                        guiding participants through the process
+                        of developing a meeting agenda.
+                    </li>
+
+                    <li>
+                        Developed scenario prompts and refined
+                        practical examples to support participant
+                        understanding.
+                    </li>
+
+                    <li>
+                        Printed agenda templates for participants
+                        to complete during the workshop.
+                    </li>
+
+                    <li>
+                        Helped organize the workshop content and
+                        timing to meet the 15-minute presentation
+                        requirement.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Skills Demonstrated</h3>
+
+                <div class="skills-list">
+
+                    <span class="skill-tag">Teamwork</span>
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Business Communication</span>
+                    <span class="skill-tag">Professional Memo Writing</span>
+                    <span class="skill-tag">Public Speaking</span>
+                    <span class="skill-tag">Workshop Facilitation</span>
+                    <span class="skill-tag">Presentation Design</span>
+                    <span class="skill-tag">Microsoft PowerPoint</span>
+                    <span class="skill-tag">Audience Engagement</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Project Planning</span>
+                    <span class="skill-tag">Self-Reflection</span>
+
+                </div>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Why I Included This Project</h3>
+
+                <p>
+                    I included this project because it demonstrates
+                    my ability to apply business communication
+                    concepts in a collaborative and practical
+                    setting. As an accounting student, I recognize
+                    that professional success requires more than
+                    technical knowledge. Accountants must also
+                    communicate effectively, collaborate with
+                    colleagues, organize information, and present
+                    complex concepts clearly. This project highlights
+                    my ability to take initiative, contribute to a
+                    team, and guide an audience through a structured
+                    learning experience.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Personal Reflection</h3>
+
+                <p>
+                    This experience helped me recognize the
+                    importance of balancing individual initiative
+                    with shared responsibility in a team environment.
+                    Through developing the presentation and leading
+                    the interactive activity, I strengthened my
+                    leadership, organization, and public speaking
+                    skills. I also gained a greater understanding
+                    of how team development, clear expectations,
+                    delegation, and communication influence the
+                    success of a collaborative project. Moving
+                    forward, I hope to continue developing my ability
+                    to distribute responsibilities effectively,
+                    establish clear expectations, and encourage
+                    meaningful participation from all team members.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer class="project-footer">
+        &copy; 2026 Grace Wernick | Digital Portfolio
+    </footer>
+
+    <script>
+
+        const documents = [
+            {
+                name: "Proposal Memo",
+                file: "bis101-phase1-proposal.pdf",
+                type: "pdf",
+                caption:
+                    "Our team's proposal memo outlines the purpose, learning objectives, structure, and planned activities of our interactive micro-workshop. It demonstrates professional business writing, collaborative planning, and audience awareness."
+            },
+            {
+                name: "PowerPoint",
+                file: "bis101-phase1-presentation.pptx",
+                type: "powerpoint",
+                caption:
+                    "The PowerPoint presentation, which I created and designed for our team, introduces effective meeting agendas and guides participants through an interactive fundraising-event scenario. It demonstrates visual communication, presentation design, leadership, and workshop facilitation."
+            },
+            {
+                name: "Personal Reflection",
+                file: "bis101-phase1-reflection.pdf",
+                type: "pdf",
+                caption:
+                    "My Personal Reflection examines my individual contributions, the team's development, and the lessons I gained from the collaborative experience. It demonstrates self-awareness, critical reflection, and a commitment to continued professional growth."
+            }
+        ];
+
+        function showDocument(index) {
+
+            const selected = documents[index];
+
+            const frame =
+                document.getElementById("documentFrame");
+
+            const caption =
+                document.getElementById("documentCaption");
+
+            const downloadLink =
+                document.getElementById("downloadLink");
+
+            const openLink =
+                document.getElementById("openLink");
+
+            const viewerNote =
+                document.getElementById("viewerNote");
+
+            const fileURL =
+                new URL(selected.file, window.location.href).href;
+
+            let viewerURL = fileURL;
+
+            if (selected.type === "powerpoint") {
+
+                viewerURL =
+                    "https://view.officeapps.live.com/op/embed.aspx?src=" +
+                    encodeURIComponent(fileURL);
+
+                frame.classList.add("powerpoint-viewer");
+
+                viewerNote.textContent =
+                    "The presentation is displayed using Microsoft Office's online viewer. If the viewer does not load, download the original PowerPoint file.";
+
+            } else {
+
+                frame.classList.remove("powerpoint-viewer");
+
+                viewerNote.textContent =
+                    "If the embedded document does not display, use the download or open button above.";
+
+            }
+
+            frame.src = viewerURL;
+            frame.title = selected.name;
+
+            caption.textContent = selected.caption;
+
+            downloadLink.href = fileURL;
+
+            downloadLink.textContent =
+                "Download " + selected.name;
+
+            openLink.href = viewerURL;
+
+            document.querySelectorAll(".tab-button")
+                .forEach((button, buttonIndex) => {
+
+                    const isActive = buttonIndex === index;
+
+                    button.classList.toggle(
+                        "active",
+                        isActive
+                    );
+
+                    button.setAttribute(
+                        "aria-pressed",
+                        String(isActive)
+                    );
+
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
