@@ -1,0 +1,27 @@
+/* Midnight Mode: independent of existing layout and animations */
+.theme-toggle {position:relative; display:inline-grid; place-items:center; width:38px; height:38px; flex:0 0 38px; border:1px solid var(--line); border-radius:50%; background:var(--ice); color:var(--navy); cursor:pointer; padding:0; transition:background-color .3s,color .3s,border-color .3s;}
+.theme-toggle[hidden]{display:none}
+.theme-toggle svg {position:absolute; width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s,opacity .3s;}
+.theme-sun {opacity:0;transform:rotate(-90deg) scale(.5)}
+.theme-toggle:hover {border-color:var(--blue)}
+html[data-theme="midnight"] {color-scheme:dark;--paper:#0b1728;--ice:#101f34;--ink:#e6eff9;--muted:#a9bdd3;--line:#304a66;--blue:#8db9e5;--sky:#a9c9e8;}
+html[data-theme="midnight"] :is(.site-header,.dropdown-menu,.submenu-panel){background:#101f34;}
+html[data-theme="midnight"] :is(.wordmark,.nav a,.dropdown-toggle,.menu-toggle,.nav .dropdown-item,.intro h2,.section-heading h2,.resume h2,.lead,.facts strong,.portfolio-card h3,.card-link,.section-kicker span,footer a){color:#e6eff9;}
+html[data-theme="midnight"] :is(.nav a:hover,.dropdown-toggle:hover,.nav-dropdown.open .dropdown-toggle,.nav .dropdown-item:hover,.nav .dropdown-item:focus-visible,.submenu-group.expanded > .submenu-toggle){color:#a9c9e8;}
+html[data-theme="midnight"] :is(.nav .dropdown-item:hover,.nav .dropdown-item:focus-visible,.submenu-group.expanded > .submenu-toggle){background:#233d5b;}
+html[data-theme="midnight"] .nav #portfolioMenu > a.dropdown-item,html[data-theme="midnight"] .nav .submenu-panel a:first-of-type{background:#203750;color:#e6eff9;}
+html[data-theme="midnight"] .nav #portfolioMenu > a.dropdown-item:hover,html[data-theme="midnight"] .nav .submenu-panel a:first-of-type:hover{background:#304f70;color:#fff;}
+html[data-theme="midnight"] .portfolio-card{background:#172c46;border-color:#304a66;}
+html[data-theme="midnight"] .portfolio-card:hover{border-color:#8db9e5;box-shadow:0 16px 35px #07101e80;}
+html[data-theme="midnight"] :is(.hero,.contact){background:#101f34;}
+html[data-theme="midnight"] .hero-decoration{color:#233d5b;}
+html[data-theme="midnight"] .button-dark{background:#8db9e5;color:#142d4e;}
+html[data-theme="midnight"] .button-dark:hover{background:#a9c9e8;}
+html[data-theme="midnight"] .resume-actions a[download]{color:#e6eff9!important;border-color:#8db9e5!important;}
+html[data-theme="midnight"] .nav a[href*="linkedin.com"] svg{fill:#8db9e5;}
+html[data-theme="midnight"] .theme-toggle{background:#233d5b;color:#e6eff9;}
+html[data-theme="midnight"] .theme-moon{opacity:0;transform:rotate(90deg) scale(.5);}
+html[data-theme="midnight"] .theme-sun{opacity:1;transform:rotate(0) scale(1);}
+@media(max-width:760px){html[data-theme="midnight"] .nav{background:#101f34;}.theme-toggle{align-self:flex-start;}}
+@media(prefers-reduced-motion:no-preference){html.theme-ready :is(body,.site-header,.hero,.contact,.portfolio,.resume-panel,footer){transition:background-color .3s,color .3s;}}
+@media(prefers-reduced-motion:reduce){.theme-toggle,.theme-toggle svg{transition:none;}}
