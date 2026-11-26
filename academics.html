@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics & Coursework | Grace Wernick</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #eaf1f7;
+    }
+
+    .academics-header {
+      background: #142a48;
+      color: white;
+      padding: 65px 8%;
+    }
+
+    .back-link {
+      color: #b8d2eb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .academics-kicker {
+      color: #a6c7e8;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-top: 35px;
+      margin-bottom: 18px;
+    }
+
+    .academics-header h1 {
+      color: white;
+      font-size: clamp(36px, 5vw, 65px);
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: 0 0 20px;
+    }
+
+    .academics-header p {
+      color: #d0e0ef;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 750px;
+      margin: 0;
+    }
+
+    .academics-content {
+      max-width: 1500px;
+      margin: auto;
+      padding: 55px 8% 80px;
+    }
+
+    .academics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .academic-card {
+      background: #f5f8fb;
+      border: 1px solid #d5dfe9;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .academic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(20, 42, 72, 0.08);
+    }
+
+    .academic-preview {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .academic-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .academic-type {
+      color: #447fb0;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .academic-card h2 {
+      color: #142a48;
+      font-size: clamp(24px, 2.5vw, 32px);
+      line-height: 1.3;
+      margin: 0 0 12px;
+    }
+
+    .company-name {
+      color: #447fb0;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .academic-meta {
+      color: #526b83;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .academic-description {
+      color: #526b83;
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0 0 25px;
+    }
+
+    .academic-link {
+      display: block;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #d5dfe9;
+      color: #142a48;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .academic-link:hover {
+      color: #447fb0;
+    }
+
+    .academics-footer {
+      background: #142a48;
+      color: #b8d2eb;
+      padding: 25px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .academics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .academics-content {
+        padding: 35px 6% 60px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .academics-header {
+        padding: 40px 6%;
+      }
+
+      .academic-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="academics-header">
+
+    <a href="index.html#portfolio" class="back-link">
+      ← Back to Portfolio
+    </a>
+
+    <div class="academics-kicker">
+      01 / EDUCATION
+    </div>
+
+    <h1>Academics &amp; Coursework</h1>
+
+    <p>
+      A collection of academic projects and learning
+      experiences that demonstrate my developing
+      knowledge of accounting, business, and technology.
+    </p>
+
+  </header>
+
+  <main class="academics-content">
+
+    <div class="academics-grid">
+
+      <!-- PROJECT 1 -->
+
+      <article class="academic-card">
+
+        <div class="academic-preview">
+          <img
+            src="accounting-project-1-preview.png"
+            alt="Kelly Consulting end-of-period accounting worksheet">
+        </div>
+
+        <div class="academic-type">
+          ACCOUNTING · MICROSOFT EXCEL
+        </div>
+
+        <h2>
+          Accounting for a Service Business
+        </h2>
+
+        <div class="company-name">
+          Kelly Consulting
+        </div>
+
+        <div class="academic-meta">
+          Montcalm Community College<br>
+          ACCT 115 | Spring 2026
+        </div>
+
+        <p class="academic-description">
+          An Excel-based accounting project demonstrating
+          general ledger posting, adjusting entries,
+          trial balance preparation, and end-of-period
+          financial reporting for a service business.
+        </p>
+
+        <a href="accounting-project-1.html"
+           class="academic-link">
+          View project →
+        </a>
+
+      </article>
+
+      <!-- PROJECT 2 -->
+
+      <article class="academic-card">
+
+        <div class="academic-preview">
+          <img
+            src="accounting-project-2-preview.png"
+            alt="Palisade Creek Co. end-of-period accounting worksheet">
+        </div>
+
+        <div class="academic-type">
+          ACCOUNTING · MICROSOFT EXCEL
+        </div>
+
+        <h2>
+          Accounting for a Merchandising Business
+        </h2>
+
+        <div class="company-name">
+          Palisade Creek Co.
+        </div>
+
+        <div class="academic-meta">
+          Montcalm Community College<br>
+          ACCT 115 | Spring 2026
+        </div>
+
+        <p class="academic-description">
+          An Excel-based accounting project applying
+          accounting principles to a merchandising
+          business, including merchandise inventory,
+          sales transactions, cost of merchandise sold,
+          and end-of-period financial reporting.
+        </p>
+
+        <a href="accounting-project-2.html"
+           class="academic-link">
+          View project →
+        </a>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <footer class="academics-footer">
+    &copy; 2026 Grace Wernick | Digital Portfolio
+  </footer>
+
+</body>
+</html>
