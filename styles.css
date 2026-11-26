@@ -616,3 +616,55 @@ button:focus-visible {
     background-color: var(--sky);
     color: var(--navy);
 }
+
+/* Mobile profile quotation coin */
+
+@media (max-width: 760px) {
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0;
+  }
+
+  .hero-copy {
+    display: contents;
+  }
+
+  .hero > .hero-copy > .eyebrow {
+    grid-row: 1;
+    z-index: 1;
+  }
+
+  .hero > .hero-copy > h1 {
+    grid-row: 2;
+    z-index: 1;
+  }
+
+  .hero-aside {
+    display: block;
+    grid-row: 3;
+    justify-self: center;
+    width: 100%;
+    margin: 8px auto 32px;
+    text-align: center;
+  }
+
+  .hero-aside .profile-coin {
+    width: min(260px, 80vw);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 24px;
+    touch-action: manipulation;
+  }
+
+  .hero > .hero-copy > .hero-intro {
+    grid-row: 4;
+    z-index: 1;
+  }
+
+  .hero > .hero-copy > .hero-actions {
+    grid-row: 5;
+    z-index: 1;
+  }
+
+}
