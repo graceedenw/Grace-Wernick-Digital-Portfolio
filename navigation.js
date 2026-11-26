@@ -1,140 +1,154 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('portfolioDropdown');
+  const toggle = document.getElementById('portfolioToggle');
+  const menu = document.getElementById('portfolioMenu');
 
-/* ==========================================
-   PORTFOLIO NAVIGATION DROPDOWN
-   ========================================== */
+  if (!root || !toggle || !menu) return;
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  const dropdown = document.getElementById("portfolioDropdown");
-  const toggle = document.getElementById("portfolioToggle");
-  const menu = document.getElementById("portfolioMenu");
-
-  if (!dropdown || !toggle || !menu) return;
-
-  let closeTimer;
-
-  const desktopHover = window.matchMedia(
-    "(min-width: 761px) and (hover: hover) and (pointer: fine)"
+  const groups = [...menu.querySelectorAll('.submenu-group')];
+  const desktop = matchMedia(
+    '(min-width: 761px) and (hover: hover) and (pointer: fine)'
   );
 
-  /* Open the dropdown */
+  let timer;
 
-  function openDropdown() {
+  function expand(group) {
+    groups.forEach(g => {
+      const on = g === group;
 
-    clearTimeout(closeTimer);
+      g.classList.toggle('expanded', on);
+      g.querySelector('button').setAttribute(
+        'aria-expanded', String(on)
+      );
 
-    dropdown.classList.add("open");
-    toggle.setAttribute("aria-expanded", "true");
-    menu.inert = false;
+      const panel = g.querySelector('.submenu-panel');
+      panel.inert = !on;
 
-  }
+      if (on) {
+        panel.classList.remove('flip-left');
 
-  /* Close the dropdown */
-
-  function closeDropdown() {
-
-    clearTimeout(closeTimer);
-
-    dropdown.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-    menu.inert = true;
-
-  }
-
-  /* Hover interaction */
-
-  dropdown.addEventListener("pointerenter", (event) => {
-
-    if (desktopHover.matches && event.pointerType === "mouse") {
-      openDropdown();
-    }
-
-  });
-
-  dropdown.addEventListener("pointerleave", (event) => {
-
-    if (desktopHover.matches && event.pointerType === "mouse") {
-
-      closeTimer = setTimeout(() => {
-
-        if (!menu.contains(document.activeElement)) {
-          closeDropdown();
+        if (
+          innerWidth > 760 &&
+          g.getBoundingClientRect().right + 320 > innerWidth - 12
+        ) {
+          panel.classList.add('flip-left');
         }
+      }
+    });
+  }
 
-      }, 250);
+  function open() {
+    clearTimeout(timer);
+    root.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.inert = false;
+  }
 
+  function close() {
+    clearTimeout(timer);
+    expand(null);
+    root.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.inert = true;
+  }
+
+  root.addEventListener('pointerenter', e => {
+    if (desktop.matches && e.pointerType === 'mouse') {
+      open();
     }
-
   });
 
-  /* Click and touchscreen interaction */
-
-  toggle.addEventListener("click", () => {
-
-    if (dropdown.classList.contains("open")) {
-      closeDropdown();
-    } else {
-      openDropdown();
+  root.addEventListener('pointerleave', e => {
+    if (desktop.matches && e.pointerType === 'mouse') {
+      timer = setTimeout(() => {
+        if (!root.contains(document.activeElement)) {
+          close();
+        }
+      }, 300);
     }
-
   });
 
-  /* Close when clicking outside */
-
-  document.addEventListener("click", (event) => {
-
-    if (!dropdown.contains(event.target)) {
-      closeDropdown();
-    }
-
+  toggle.addEventListener('click', () => {
+    root.classList.contains('open') ? close() : open();
   });
 
-  /* Close after selecting a menu option */
+  groups.forEach(g => {
+    const button = g.querySelector('button');
 
-  menu.querySelectorAll("a").forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-      closeDropdown();
-
+    g.addEventListener('pointerenter', e => {
+      if (desktop.matches && e.pointerType === 'mouse') {
+        expand(g);
+      }
     });
 
+    button.addEventListener('click', () => {
+      if (
+        desktop.matches &&
+        g.classList.contains('expanded')
+      ) return;
+
+      expand(g.classList.contains('expanded') ? null : g);
+    });
+
+    button.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        expand(g);
+        g.querySelector('.submenu-panel a').focus();
+      }
+    });
   });
 
-  /* Keyboard accessibility */
+  menu.querySelector(':scope > a')
+    .addEventListener('pointerenter', () => {
+      if (desktop.matches) expand(null);
+    });
 
-  dropdown.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-
-      closeDropdown();
-      toggle.focus();
-
-    }
-
-    if (event.key === "ArrowDown" && event.target === toggle) {
-
-      event.preventDefault();
-      openDropdown();
-
-      menu.querySelector("a")?.focus();
-
-    }
-
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', close);
   });
 
-  /* Close when keyboard focus leaves */
-
-  dropdown.addEventListener("focusout", (event) => {
-
-    if (!dropdown.contains(event.relatedTarget)) {
-      closeDropdown();
-    }
-
+  document.addEventListener('pointerdown', e => {
+    if (!root.contains(e.target)) close();
   });
 
-  /* Reset when changing screen sizes */
+  root.addEventListener('focusout', e => {
+    if (!root.contains(e.relatedTarget)) close();
+  });
 
-  desktopHover.addEventListener("change", closeDropdown);
+  root.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
 
+      const g = groups.find(g =>
+        g.classList.contains('expanded')
+      );
+
+      if (g) {
+        expand(null);
+        g.querySelector('button').focus();
+      } else {
+        close();
+        toggle.focus();
+      }
+    }
+
+    if (e.key === 'ArrowDown' && e.target === toggle) {
+      e.preventDefault();
+      open();
+      menu.querySelector('a').focus();
+    }
+
+    if (
+      e.key === 'ArrowLeft' &&
+      e.target.closest('.submenu-panel')
+    ) {
+      e.preventDefault();
+      const g = e.target.closest('.submenu-group');
+      expand(null);
+      g.querySelector('button').focus();
+    }
+  });
+
+  desktop.addEventListener('change', close);
 });
