@@ -402,6 +402,13 @@ document.addEventListener("DOMContentLoaded", () => {
     rotation += 180;
 
     inner.style.transform = `rotateY(${rotation}deg)`;
+     
+window.setTimeout(() => {
+
+  inner.classList.toggle("show-quote", showingQuote);
+
+}, reducedMotion.matches ? 0 : 425);
+
 
     coin.setAttribute(
       "aria-pressed",
