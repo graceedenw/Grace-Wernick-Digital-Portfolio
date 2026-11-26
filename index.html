@@ -38,9 +38,43 @@
         <div class="hero-actions"><a class="button button-light" href="#portfolio">Explore my portfolio <span>↗</span></a><a class="text-link" href="#about">Get to know me</a></div>
       </div>
       <div class="hero-aside">
-        <div class="monogram" style="overflow: hidden;">
-  <img src="PROFILE%20IMAGE.png" alt="Grace Wernick" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-</div>
+        
+<button class="profile-coin" id="profileCoin"
+        type="button"
+        aria-label="Flip profile picture to reveal a quotation"
+        aria-pressed="false">
+
+  <span class="coin-inner" id="coinInner">
+
+    <!-- Front: Profile Picture -->
+    <span class="coin-face coin-front">
+      <img src="PROFILE%20IMAGE.png"
+           alt="Grace Wernick">
+    </span>
+
+    <!-- Back: Random Quotation -->
+    <span class="coin-face coin-back">
+      <span class="coin-icon" id="coinIcon"></span>
+
+      <span class="coin-quote" id="coinQuote">
+        “The journey of a thousand miles begins with a single step.”
+      </span>
+
+      <span class="coin-divider"></span>
+
+      <span class="coin-author" id="coinAuthor">
+        — Lao Tzu
+      </span>
+
+      <span class="coin-source" id="coinSource">
+        Tao Te Ching
+      </span>
+    </span>
+
+  </span>
+
+</button>
+
        <p style="text-transform: none; letter-spacing: normal; line-height: 1.4;">With each new experience,<br>I grow closer to my goals.</p>
         <span class="aside-line"></span>
         <small>Mount Pleasant, Michigan</small>
