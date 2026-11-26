@@ -10,11 +10,11 @@
   <style>
     body {
       margin: 0;
-      background: #eaf1f7;
+      background: var(--page-hex-eaf1f7-0b1728, #eaf1f7);
     }
 
     .academics-header {
-      background: #142a48;
+      background: var(--page-hex-142a48-142d4e, #142a48);
       color: white;
       padding: 65px 8%;
     }
@@ -67,8 +67,8 @@
     }
 
     .academic-card {
-      background: #f5f8fb;
-      border: 1px solid #d5dfe9;
+      background: var(--page-hex-f5f8fb-172c46, #f5f8fb);
+      border: 1px solid var(--page-hex-d5dfe9-304a66, #d5dfe9);
       padding: 25px;
       display: flex;
       flex-direction: column;
@@ -84,7 +84,7 @@
     .academic-preview {
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: white;
+      background: var(--page-white-172c46, white);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -100,7 +100,7 @@
     }
 
     .academic-type {
-      color: #447fb0;
+      color: var(--page-hex-447fb0-8db9e5, #447fb0);
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 1.5px;
@@ -108,28 +108,28 @@
     }
 
     .academic-card h2 {
-      color: #142a48;
+      color: var(--page-hex-142a48-e6eff9, #142a48);
       font-size: clamp(24px, 2.5vw, 32px);
       line-height: 1.3;
       margin: 0 0 12px;
     }
 
     .company-name {
-      color: #447fb0;
+      color: var(--page-hex-447fb0-8db9e5, #447fb0);
       font-size: 15px;
       font-weight: 500;
       margin-bottom: 15px;
     }
 
     .academic-meta {
-      color: #526b83;
+      color: var(--page-hex-526b83-a9bdd3, #526b83);
       font-size: 13px;
       line-height: 1.7;
       margin-bottom: 18px;
     }
 
     .academic-description {
-      color: #526b83;
+      color: var(--page-hex-526b83-a9bdd3, #526b83);
       font-size: 14px;
       line-height: 1.8;
       margin: 0 0 25px;
@@ -139,19 +139,19 @@
       display: block;
       margin-top: auto;
       padding-top: 20px;
-      border-top: 1px solid #d5dfe9;
-      color: #142a48;
+      border-top: 1px solid var(--page-hex-d5dfe9-304a66, #d5dfe9);
+      color: var(--page-hex-142a48-e6eff9, #142a48);
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
     }
 
     .academic-link:hover {
-      color: #447fb0;
+      color: var(--page-hex-447fb0-8db9e5, #447fb0);
     }
 
     .academics-footer {
-      background: #142a48;
+      background: var(--page-hex-142a48-142d4e, #142a48);
       color: #b8d2eb;
       padding: 25px;
       text-align: center;
@@ -178,11 +178,18 @@
       }
     }
   </style>
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
 </head>
 
 <body>
 
   <header class="academics-header">
+<button type="button" class="theme-toggle page-theme-toggle" aria-label="Midnight Mode" aria-pressed="false" title="Switch theme" hidden>
+      <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.35A9 9 0 0 1 10.65 3.1 9 9 0 1 0 20.9 13.35Z"/></svg>
+      <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+    </button>
+
 
     <a href="index.html#portfolio" class="back-link">
       ← Back to Portfolio

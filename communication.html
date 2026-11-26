@@ -18,13 +18,13 @@
 
         body {
             margin: 0;
-            background: #ffffff;
+            background: var(--page-hex-ffffff-0b1728, #ffffff);
             font-family: 'DM Sans', sans-serif;
-            color: #142a48;
+            color: var(--page-hex-142a48-e6eff9, #142a48);
         }
 
         .category-header {
-            background: #142a48;
+            background: var(--page-hex-142a48-142d4e, #142a48);
             color: white;
             padding: 48px 24px 55px;
         }
@@ -68,7 +68,7 @@
         }
 
         .section-label {
-            color: #447fb0;
+            color: var(--page-hex-447fb0-8db9e5, #447fb0);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 12px;
@@ -80,7 +80,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 32px;
             margin: 0 0 28px;
-            color: #142a48;
+            color: var(--page-hex-142a48-e6eff9, #142a48);
         }
 
         .projects-grid {
@@ -93,8 +93,8 @@
         .project-card {
             display: flex;
             flex-direction: column;
-            background: #f5f8fb;
-            border: 1px solid #dce6ef;
+            background: var(--page-hex-f5f8fb-172c46, #f5f8fb);
+            border: 1px solid var(--page-hex-dce6ef-304a66, #dce6ef);
             border-radius: 14px;
             overflow: hidden;
             transition: transform 0.25s ease,
@@ -109,9 +109,9 @@
         .project-preview {
             width: 100%;
             aspect-ratio: 16 / 9;
-            background: #eaf1f7;
+            background: var(--page-hex-eaf1f7-101f34, #eaf1f7);
             overflow: hidden;
-            border-bottom: 1px solid #dce6ef;
+            border-bottom: 1px solid var(--page-hex-dce6ef-304a66, #dce6ef);
         }
 
         .project-preview img {
@@ -133,7 +133,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.4px;
-            color: #447fb0;
+            color: var(--page-hex-447fb0-8db9e5, #447fb0);
             margin-bottom: 12px;
         }
 
@@ -141,30 +141,30 @@
             font-family: 'Playfair Display', serif;
             font-size: 25px;
             line-height: 1.4;
-            color: #142a48;
+            color: var(--page-hex-142a48-e6eff9, #142a48);
             margin: 0 0 12px;
         }
 
         .project-course {
-            color: #526b83;
+            color: var(--page-hex-526b83-a9bdd3, #526b83);
             font-size: 13px;
             line-height: 1.7;
             margin: 0 0 18px;
         }
 
         .grade-box {
-            background: #edf3f9;
-            border-left: 3px solid #447fb0;
+            background: var(--page-hex-edf3f9-203750, #edf3f9);
+            border-left: 3px solid var(--page-hex-447fb0-8db9e5, #447fb0);
             border-radius: 5px;
             padding: 12px 16px;
             font-size: 14px;
             font-weight: 700;
-            color: #142a48;
+            color: var(--page-hex-142a48-e6eff9, #142a48);
             margin-bottom: 18px;
         }
 
         .project-description {
-            color: #526b83;
+            color: var(--page-hex-526b83-a9bdd3, #526b83);
             font-size: 15px;
             line-height: 1.8;
             margin: 0 0 20px;
@@ -178,18 +178,18 @@
         }
 
         .skill-tag {
-            background: #eaf1f7;
+            background: var(--page-hex-eaf1f7-101f34, #eaf1f7);
             border-radius: 20px;
             padding: 6px 12px;
             font-size: 11px;
             font-weight: 500;
-            color: #526b83;
+            color: var(--page-hex-526b83-a9bdd3, #526b83);
         }
 
         .project-button {
             display: block;
             text-align: center;
-            background: #142a48;
+            background: var(--page-hex-142a48-142d4e, #142a48);
             color: white;
             padding: 13px 20px;
             border-radius: 7px;
@@ -201,15 +201,15 @@
         }
 
         .project-button:hover {
-            background: #447fb0;
+            background: var(--page-hex-447fb0-315d86, #447fb0);
             color: white;
         }
 
         .category-footer {
             text-align: center;
-            background: #eaf1f7;
+            background: var(--page-hex-eaf1f7-101f34, #eaf1f7);
             padding: 24px;
-            color: #526b83;
+            color: var(--page-hex-526b83-a9bdd3, #526b83);
             font-size: 13px;
         }
 
@@ -231,11 +231,18 @@
             }
         }
     </style>
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
 </head>
 
 <body>
 
     <header class="category-header">
+<button type="button" class="theme-toggle page-theme-toggle" aria-label="Midnight Mode" aria-pressed="false" title="Switch theme" hidden>
+      <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.35A9 9 0 0 1 10.65 3.1 9 9 0 1 0 20.9 13.35Z"/></svg>
+      <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+    </button>
+
         <div class="header-inner">
 
             <a href="index.html#portfolio" class="back-link">

@@ -17,13 +17,13 @@
 
         body {
             margin: 0;
-            background: #ffffff;
-            color: #142a48;
+            background: var(--page-hex-ffffff-0b1728, #ffffff);
+            color: var(--page-hex-142a48-e6eff9, #142a48);
             font-family: 'DM Sans', sans-serif;
         }
 
         .development-header {
-            background: #142a48;
+            background: var(--page-hex-142a48-142d4e, #142a48);
             color: white;
             padding: 45px 24px 50px;
         }
@@ -45,7 +45,7 @@
         }
 
         .eyebrow {
-            color: #447fb0;
+            color: var(--page-hex-447fb0-8db9e5, #447fb0);
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
@@ -81,26 +81,33 @@
 
 
 .dev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.dev-card{display:flex;flex-direction:column;background:#f5f8fb;border:1px solid #dce6ef;border-radius:12px;overflow:hidden;text-decoration:none;color:#142a48;transition:transform .25s,box-shadow .25s,border-color .25s}
-.dev-image{height:240px;background:#eaf1f7;overflow:hidden;position:relative}
+.dev-card{display:flex;flex-direction:column;background:var(--page-hex-f5f8fb-172c46, #f5f8fb);border:1px solid var(--page-hex-dce6ef-304a66, #dce6ef);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--page-hex-142a48-e6eff9, #142a48);transition:transform .25s,box-shadow .25s,border-color .25s}
+.dev-image{height:240px;background:var(--page-hex-eaf1f7-101f34, #eaf1f7);overflow:hidden;position:relative}
 .dev-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
 .dev-image.logo img{object-fit:contain;padding:35px;background:white}
 .dev-content{padding:26px;display:flex;flex-direction:column;flex:1;align-items:flex-start}
-.dev-content h2{font-family:'Playfair Display',serif;font-size:26px;color:#142a48;margin:0 0 12px;line-height:1.25}
-.dev-content p{color:#526b83;font-size:14px;line-height:1.8;margin:0 0 20px}
-.dev-link{font-size:14px;font-weight:700;color:#142a48;margin-top:auto;display:inline-flex;gap:12px;align-items:center}
+.dev-content h2{font-family:'Playfair Display',serif;font-size:26px;color:var(--page-hex-142a48-e6eff9, #142a48);margin:0 0 12px;line-height:1.25}
+.dev-content p{color:var(--page-hex-526b83-a9bdd3, #526b83);font-size:14px;line-height:1.8;margin:0 0 20px}
+.dev-link{font-size:14px;font-weight:700;color:var(--page-hex-142a48-e6eff9, #142a48);margin-top:auto;display:inline-flex;gap:12px;align-items:center}
 .dev-link span{transition:transform .25s}
-.dev-upcoming{position:absolute;top:14px;left:14px;background:#142a48;color:white;border:1px solid #447fb0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:600;letter-spacing:.5px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 6px #142a4820}
-.dev-goals{grid-column:1/-1;display:flex;flex-direction:row;align-items:center;background:#eaf1f7;padding:24px;gap:24px}
+.dev-upcoming{position:absolute;top:14px;left:14px;background:var(--page-hex-142a48-142d4e, #142a48);color:white;border:1px solid var(--page-hex-447fb0-8db9e5, #447fb0);border-radius:6px;padding:8px 14px;font-size:13px;font-weight:600;letter-spacing:.5px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 6px #142a4820}
+.dev-goals{grid-column:1/-1;display:flex;flex-direction:row;align-items:center;background:var(--page-hex-eaf1f7-101f34, #eaf1f7);padding:24px;gap:24px}
 .dev-goals .dev-content{padding:0;min-width:0}
-.dev-goals-icon{width:90px;height:90px;flex-shrink:0;display:grid;place-items:center;background:white;border:1px solid #dce6ef;border-radius:12px;color:#447fb0}
+.dev-goals-icon{width:90px;height:90px;flex-shrink:0;display:grid;place-items:center;background:var(--page-white-172c46, white);border:1px solid var(--page-hex-dce6ef-304a66, #dce6ef);border-radius:12px;color:var(--page-hex-447fb0-8db9e5, #447fb0)}
 .dev-card:focus-visible{outline:3px solid #447fb0;outline-offset:4px}
-.development-footer{display:block;text-align:center;border-top:1px solid #dce6ef;padding:24px;color:#526b83;font-size:12px}
+.development-footer{display:block;text-align:center;border-top:1px solid var(--page-hex-dce6ef-304a66, #dce6ef);padding:24px;color:var(--page-hex-526b83-a9bdd3, #526b83);font-size:12px}
 @media(hover:hover) and (pointer:fine){.dev-card:hover{transform:translateY(-5px);box-shadow:0 14px 30px #142a481c;border-color:#a9c9e8}.dev-card:hover .dev-image img{transform:scale(1.035)}.dev-card:hover .dev-link span{transform:translateX(5px)}}
 @media(max-width:760px){.dev-grid{grid-template-columns:1fr;gap:18px}.dev-image{height:210px}.dev-content{padding:22px}.dev-goals{padding:22px;gap:16px;align-items:flex-start}.dev-goals-icon{width:52px;height:52px}.dev-goals-icon svg{width:30px;height:30px}.dev-content h2{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.dev-card,.dev-image img,.dev-link span{transition:none!important;transform:none!important}}
 </style>
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
 </head><body><header class="development-header">
+<button type="button" class="theme-toggle page-theme-toggle" aria-label="Midnight Mode" aria-pressed="false" title="Switch theme" hidden>
+      <svg class="theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13.35A9 9 0 0 1 10.65 3.1 9 9 0 1 0 20.9 13.35Z"/></svg>
+      <svg class="theme-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+    </button>
+
 <div class="header-inner">
 <a class="back-link" href="index.html">
                 ← Back to Portfolio

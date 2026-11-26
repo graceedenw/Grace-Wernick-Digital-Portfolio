@@ -25,3 +25,51 @@ html[data-theme="midnight"] .theme-sun{opacity:1;transform:rotate(0) scale(1);}
 @media(max-width:760px){html[data-theme="midnight"] .nav{background:#101f34;}.theme-toggle{align-self:flex-start;}}
 @media(prefers-reduced-motion:no-preference){html.theme-ready :is(body,.site-header,.hero,.contact,.portfolio,.resume-panel,footer){transition:background-color .3s,color .3s;}}
 @media(prefers-reduced-motion:reduce){.theme-toggle,.theme-toggle svg{transition:none;}}
+
+/* Shared secondary-page palette */
+html[data-theme="midnight"] {
+  --page-hex-eaf1f7-0b1728: #0b1728;
+  --page-hex-142a48-142d4e: #142d4e;
+  --page-hex-447fb0-8db9e5: #8db9e5;
+  --page-white-172c46: #172c46;
+  --page-hex-d5dfe9-304a66: #304a66;
+  --page-hex-edf3f9-203750: #203750;
+  --page-hex-c8d7e5-304a66: #304a66;
+  --page-hex-f5f8fb-172c46: #172c46;
+  --page-hex-142a48-e6eff9: #e6eff9;
+  --page-hex-dce8f3-304a66: #304a66;
+  --page-hex-142a48-8db9e5: #8db9e5;
+  --page-hex-526b83-a9bdd3: #a9bdd3;
+  --page-hex-447fb0-315d86: #315d86;
+  --page-hex-cddae6-304a66: #304a66;
+  --page-hex-f0f4f8-203750: #203750;
+  --page-hex-dce5ef-304a66: #304a66;
+  --page-hex-f5f8fb-0b1728: #0b1728;
+  --page-hex-dce6ef-304a66: #304a66;
+  --page-hex-eaf1f7-101f34: #101f34;
+  --page-hex-ccd9e5-304a66: #304a66;
+  --page-hex-f9fbfd-101f34: #101f34;
+  --page-hex-8294a7-a9bdd3: #a9bdd3;
+  --page-hex-eaf4ee-183b32: #183b32;
+  --page-hex-c4dfcd-467b60: #467b60;
+  --page-hex-286044-a9e1bd: #a9e1bd;
+  --page-hex-fdf0f0-492b38: #492b38;
+  --page-hex-edcaca-865061: #865061;
+  --page-hex-963c3c-ffc2c2: #ffc2c2;
+  --page-hex-ffffff-0b1728: #0b1728;
+  --page-hex-b8cbdc-617e9c: #617e9c;
+  --page-hex-d5e2ef-304a66: #304a66;
+  --page-hex-cddbe8-304a66: #304a66;
+  --page-hex-cbd9e6-304a66: #304a66;
+  --page-hex-dce7f1-304a66: #304a66;
+  --page-hex-e2eaf2-304a66: #304a66;
+}
+
+body > header:not(.site-header){position:relative;}
+.page-theme-toggle{position:absolute;top:18px;right:24px;z-index:2;background:#edf3f9;color:#142d4e;}
+body > header:not(.site-header) .back-link{display:inline-block;max-width:calc(100% - 60px);}
+html[data-theme="midnight"] .page-theme-toggle{background:#233d5b;color:#e6eff9;border-color:#8db9e5;}
+html[data-theme="midnight"] .spreadsheet-viewer{color-scheme:light;}
+html[data-theme="midnight"] .spreadsheet-viewer .loading-message{color:#526b83;}
+html[data-theme="midnight"] iframe{color-scheme:light;}
+@media(max-width:760px){.page-theme-toggle{top:12px;right:12px;}}

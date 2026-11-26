@@ -34,6 +34,15 @@
 
     apply(theme);
 
+    window.addEventListener('storage', event => {
+      if (event.key === key || event.key === null) {
+        apply(event.newValue === 'midnight' ? 'midnight' : 'light');
+      }
+    });
+    window.addEventListener('pageshow', () => {
+      try { apply(localStorage.getItem(key) === 'midnight' ? 'midnight' : 'light'); } catch (_) {}
+    });
+
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         apply(theme === 'midnight' ? 'light' : 'midnight');
