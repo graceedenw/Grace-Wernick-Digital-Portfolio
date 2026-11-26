@@ -126,3 +126,199 @@ button:focus-visible {
     transform: none !important;
   }
 }
+
+
+
+/* ===================================
+   3D PROFILE QUOTATION COIN
+   =================================== */
+
+.profile-coin {
+  display: block;
+  position: relative;
+  width: clamp(220px, 22vw, 300px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 28px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  perspective: 1200px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Rotating inner structure */
+
+.coin-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shared front and back styling */
+
+.coin-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #7191b0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 0 20px rgba(169, 201, 232, 0.12);
+  transition: box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+/* Front: Profile photograph */
+
+.coin-front {
+  transform: rotateY(0deg);
+  background: #142d4e;
+}
+
+.coin-front img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+/* Back: Quotation design */
+
+.coin-back {
+  transform: rotateY(180deg);
+  background: radial-gradient(
+    circle at 30% 20%,
+    #25496e 0%,
+    #1b385b 45%,
+    #142d4e 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 0.8vw, 12px);
+  padding: 14%;
+  text-align: center;
+}
+
+/* Source-specific icon */
+
+.coin-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a9c9e8;
+  flex-shrink: 0;
+}
+
+.coin-icon svg {
+  width: clamp(20px, 2vw, 29px);
+  height: clamp(20px, 2vw, 29px);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Quotation typography */
+
+.coin-quote {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.45vw, 21px);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-transform: none;
+  overflow-wrap: break-word;
+}
+
+/* Smaller typography for longer quotations */
+
+.coin-quote.quote-long {
+  font-size: clamp(13px, 1.2vw, 17px);
+}
+
+.coin-quote.quote-extra-long {
+  font-size: clamp(12px, 1.05vw, 15px);
+}
+
+/* Decorative divider */
+
+.coin-divider {
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: #a9c9e8;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* Author or character */
+
+.coin-author {
+  display: block;
+  font-family: var(--sans);
+  font-size: clamp(10px, 0.9vw, 13px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: normal;
+  color: #a9c9e8;
+}
+
+/* Book, television show or original source */
+
+.coin-source {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(10px, 0.85vw, 12px);
+  font-style: italic;
+  line-height: 1.4;
+  letter-spacing: normal;
+  color: #b7c9da;
+}
+
+/* Blue glow during interaction */
+
+.profile-coin:hover .coin-face,
+.profile-coin:focus-visible .coin-face,
+.profile-coin[aria-pressed="true"] .coin-face {
+  border-color: #a9c9e8;
+  box-shadow:
+    0 0 20px rgba(169, 201, 232, 0.25),
+    0 0 40px rgba(169, 201, 232, 0.15);
+}
+
+/* Keyboard accessibility */
+
+.profile-coin:focus-visible {
+  outline: 2px solid #a9c9e8;
+  outline-offset: 7px;
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .coin-inner,
+  .coin-face {
+    transition: none;
+  }
+}
