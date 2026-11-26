@@ -327,8 +327,10 @@ button:focus-visible {
 
 
 
+
+
 /* ===================================
-   COIN 3D RENDERING STABILITY FIX
+   SYNCHRONIZED COIN ANIMATION
    =================================== */
 
 .profile-coin {
@@ -338,7 +340,8 @@ button:focus-visible {
 }
 
 .coin-inner {
-  transform-style: preserve-3d;
+  transform-style: flat;
+  transition: none !important;
   overflow: visible;
   will-change: transform;
 }
@@ -349,12 +352,12 @@ button:focus-visible {
 }
 
 .coin-front {
-  transform: rotateY(0deg) translateZ(1px);
+  transform: none;
   visibility: visible;
 }
 
 .coin-back {
-  transform: rotateY(180deg) translateZ(1px);
+  transform: scaleX(-1);
   visibility: hidden;
 }
 
@@ -370,3 +373,4 @@ button:focus-visible {
   backface-visibility: visible;
   -webkit-backface-visibility: visible;
 }
+
