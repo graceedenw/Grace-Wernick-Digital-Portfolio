@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synthesis Essay | Grace Wernick</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #eaf1f7;
+    }
+
+    .project-header {
+      background: #142a48;
+      color: white;
+      padding: 55px 6%;
+    }
+
+    .back-link {
+      color: #b8d2eb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      color: white;
+    }
+
+    .project-kicker {
+      color: #a6c7e8;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-top: 35px;
+      margin-bottom: 18px;
+    }
+
+    .project-header h1 {
+      color: white;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.2;
+      max-width: 1150px;
+      margin: 0 0 25px;
+    }
+
+    .project-meta {
+      color: #d0e0ef;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 30px;
+      max-width: 1800px;
+      margin: auto;
+      padding: 40px 4% 70px;
+    }
+
+    .document-section {
+      min-width: 0;
+    }
+
+    .section-label {
+      color: #447fb0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 1100px;
+      border: 1px solid #cbd9e6;
+      background: white;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    .document-caption {
+      color: #526b83;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    .document-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .document-button {
+      display: inline-block;
+      background: #142a48;
+      color: white;
+      padding: 12px 20px;
+      font-size: 13px;
+      text-decoration: none;
+      border: 1px solid #142a48;
+      transition: background 0.2s;
+    }
+
+    .document-button:hover {
+      background: #447fb0;
+      color: white;
+    }
+
+    .document-button.secondary {
+      background: transparent;
+      color: #142a48;
+    }
+
+    .document-button.secondary:hover {
+      background: #dce7f1;
+    }
+
+    .project-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .information-card {
+      background: #f5f8fb;
+      border: 1px solid #d5dfe9;
+      padding: 25px;
+    }
+
+    .grade-card {
+      background: #edf3f9;
+      border: 1px solid #d5dfe9;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .grade-card strong {
+      display: block;
+      color: #142a48;
+      font-size: 48px;
+      line-height: 1.3;
+    }
+
+    .grade-card span {
+      color: #526b83;
+      font-size: 13px;
+    }
+
+    .information-card h2 {
+      color: #142a48;
+      font-size: 24px;
+      line-height: 1.3;
+      margin: 0 0 15px;
+    }
+
+    .information-card p {
+      color: #526b83;
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .project-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .fact {
+      background: #eaf1f7;
+      padding: 15px 8px;
+      text-align: center;
+    }
+
+    .fact strong {
+      display: block;
+      color: #142a48;
+      font-size: 26px;
+    }
+
+    .fact span {
+      color: #526b83;
+      font-size: 11px;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skill-list li {
+      color: #526b83;
+      font-size: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid #dce5ef;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-list li:last-child {
+      border-bottom: none;
+    }
+
+    .skill-list li::before {
+      content: "✓";
+      color: #447fb0;
+      font-weight: bold;
+    }
+
+    .project-footer {
+      background: #142a48;
+      color: #b8d2eb;
+      padding: 25px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .pdf-viewer {
+        height: 750px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .project-header {
+        padding: 35px 6%;
+      }
+
+      .project-layout {
+        padding: 25px 5% 50px;
+      }
+
+      .pdf-viewer {
+        height: 550px;
+      }
+
+      .information-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="project-header">
+
+    <a href="research.html" class="back-link">
+      ← Back to Research &amp; Business Writing
+    </a>
+
+    <div class="project-kicker">
+      SYNTHESIS ESSAY
+    </div>
+
+    <h1>
+      The Importance of Communicating Parental Illness to Children
+    </h1>
+
+    <div class="project-meta">
+      Montcalm Community College<br>
+      ENGL 100-01: Freshman English<br>
+      November 25, 2024
+    </div>
+
+  </header>
+
+  <main class="project-layout">
+
+    <!-- LEFT SIDE: PDF DOCUMENT -->
+
+    <section class="document-section">
+
+      <div class="section-label">
+        PROJECT DOCUMENT
+      </div>
+
+      <iframe
+        class="pdf-viewer"
+        src="Grace%20Wernick_Synthesis%20Essay_Final%20Draft.pdf#view=FitH"
+        title="Parental illness synthesis essay PDF">
+      </iframe>
+
+      <p class="document-caption">
+        Original synthesis essay completed for
+        ENGL 100 at Montcalm Community College.
+        This project combines personal experiences,
+        scholarly research, and persuasive writing
+        to examine the importance of effective
+        communication within families experiencing
+        serious illness.
+      </p>
+
+      <div class="document-actions">
+
+        <a href="Grace%20Wernick_Synthesis%20Essay_Final%20Draft.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="document-button">
+          Open full paper ↗
+        </a>
+
+        <a href="Grace%20Wernick_Synthesis%20Essay_Final%20Draft.pdf"
+           download
+           class="document-button secondary">
+          Download PDF ↓
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- RIGHT SIDE: PROJECT INFORMATION -->
+
+    <aside class="project-sidebar">
+
+      <div class="grade-card">
+        <strong>97%</strong>
+        <span>Project grade</span>
+      </div>
+
+      <section class="information-card">
+
+        <h2>Project overview</h2>
+
+        <p>
+          This synthesis essay explores the importance
+          of healthy communication between parents
+          and children when a parent experiences a
+          serious illness. By combining scholarly
+          research with personal experiences, I
+          examined the potential emotional and social
+          effects of parental illness on children and
+          the benefits of open, thoughtful communication.
+          The essay advocates for greater access to
+          reliable guidelines and real-life experiences
+          that can help families navigate difficult
+          conversations.
+        </p>
+
+        <div class="project-facts">
+
+          <div class="fact">
+            <strong>7</strong>
+            <span>Pages</span>
+          </div>
+
+          <div class="fact">
+            <strong>9</strong>
+            <span>Research sources</span>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="information-card">
+
+        <h2>Skills demonstrated</h2>
+
+        <ul class="skill-list">
+          <li>Research and source synthesis</li>
+          <li>Persuasive writing</li>
+          <li>Critical thinking</li>
+          <li>Evidence-based argumentation</li>
+          <li>Source evaluation</li>
+          <li>MLA formatting and citation</li>
+          <li>Interpretation of visual information</li>
+          <li>Audience awareness</li>
+          <li>Empathetic communication</li>
+        </ul>
+
+      </section>
+
+      <section class="information-card">
+
+        <h2>Why I included this project</h2>
+
+        <p>
+          I selected this project because it
+          demonstrates my ability to combine
+          information from multiple sources with
+          personal experiences to develop a
+          meaningful and well-supported argument.
+          It also highlights my ability to approach
+          complex and sensitive subjects thoughtfully.
+          The skills demonstrated in this essay,
+          particularly evaluating evidence, organizing
+          information, and communicating clearly,
+          are valuable in both academic and
+          professional business environments.
+        </p>
+
+      </section>
+
+      <section class="information-card">
+
+        <h2>Personal reflection</h2>
+
+        <p>
+          Completing this essay gave me the
+          opportunity to explore a topic that holds
+          personal significance while developing
+          my research and written communication
+          skills. I learned how to connect ideas
+          from different sources, incorporate
+          personal experiences into an academic
+          argument, and communicate a message
+          with both evidence and empathy.
+          This assignment reinforced the importance
+          of considering an audience's needs and
+          perspectives when communicating complex
+          information, a skill that remains relevant
+          as I continue my education in accounting
+          and business.
+        </p>
+
+      </section>
+
+    </aside>
+
+  </main>
+
+  <footer class="project-footer">
+    &copy; 2026 Grace Wernick | Digital Portfolio
+  </footer>
+
+</body>
+</html>
