@@ -325,18 +325,22 @@ button:focus-visible {
 
 
 
+
 /* ===================================
    COIN 3D RENDERING STABILITY FIX
    =================================== */
 
 .profile-coin {
   overflow: visible;
-  isolation: isolate;
+  isolation: auto;
+  perspective: 1200px;
 }
 
 .coin-inner {
   will-change: transform;
   overflow: visible;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .coin-face {
@@ -345,9 +349,15 @@ button:focus-visible {
 }
 
 .coin-front {
-  transform: rotateY(0deg) translateZ(1px);
+  transform: rotateY(0deg) translateZ(2px);
 }
 
 .coin-back {
-  transform: rotateY(180deg) translateZ(1px);
+  transform: rotateY(180deg) translateZ(2px);
 }
+
+.coin-front img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
